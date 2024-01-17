@@ -1,0 +1,52 @@
+@import "normalize.css";
+
+body {
+  /* background-color: var(--deep-green); */
+  background-color: white;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  /* color: var(--beige); */
+  color: black;
+}
+
+* button {
+  margin: 0;
+  padding: 0;
+  padding-inline: 0;
+  padding-block: 0;
+  border: 0;
+}
+
+:root {
+  --deep-green: rgb(11, 40, 30);
+  --light-green: rgb(118, 159, 87);
+  --beige: rgb(241, 241, 220);
+  --light-orange: rgb(240, 140, 103);
+  --orange: rgb(199, 53, 0);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}

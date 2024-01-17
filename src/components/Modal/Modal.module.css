@@ -1,0 +1,39 @@
+.modalBrg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  font-size: 1.6rem;
+  margin-top: 76px;
+}
+
+.modalContainer {
+  margin-top: 2rem;
+  /* background-color: aquamarine; */
+  /* border-bottom: 3px solid; */
+}
+
+.modalPages {
+  border-bottom: 3px solid;
+  color: var(--beige);
+  margin-bottom: 40px;
+  padding-left: 40px;
+  /* margin-left: 20px; */
+}
+
+.modalFooter {
+  margin: 0 40px 0 40px;
+}
+
+.hideModal {
+  transform: translateY(-100%);
+  transition: 2s;
+  background-color: brown;
+}
+
+.showModal {
+  transform: translateY(0);
+  transition: 2s;
+  background-color: blue;
+}

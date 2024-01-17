@@ -1,0 +1,21 @@
+.wrapper {
+  margin-bottom: 8vh;
+  /* background-color: rgb(255, 0, 191); */
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.wrapperContent {
+  /* margin: 0 10px 10px 10px;
+  padding: 16px; */
+  height: 80vh;
+  /* border-radius: 10px; */
+
+  margin: 0;
+  padding: 16px 26px 16px 26px;
+}

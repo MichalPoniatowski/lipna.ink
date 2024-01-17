@@ -1,0 +1,38 @@
+.wrapper {
+  /* background-color: grey; */
+  width: 100%;
+  height: 85vh;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 40px;
+  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.title {
+  padding: 0 16px 0 16px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  z-index: -1;
+  font-family: "Archivo";
+  color: var(--beige);
+  font-size: 14vw;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-shadow: 4px 4px 3px rgba(2, 2, 2, 1);
+}
+
+.backgroundVideo {
+  height: inherit;
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  overflow: hidden;
+}

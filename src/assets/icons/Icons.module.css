@@ -1,0 +1,11 @@
+.icons {
+  color: var(--beige);
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.icons:hover {
+  color: var(--orange);
+  border: none;
+}

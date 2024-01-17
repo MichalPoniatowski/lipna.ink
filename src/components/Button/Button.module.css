@@ -1,0 +1,29 @@
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button {
+  height: 60px;
+  border-radius: 30px;
+  /* background-color: var(--light-orange); */
+  background-color: var(--orange);
+  padding: 0 40px;
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--beige);
+  /* color: white; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: var(--light-orange);
+}
+
+.buttonArrow {
+  size: 3rem;
+}
