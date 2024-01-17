@@ -19,7 +19,7 @@ export const ArtistsPreview = (children) => {
         placeat corrupti distinctio corporis pariatur inventore culpa, eveniet
         sequi deleniti neque fuga nostrum! Blanditiis sapiente libero officiis
         tempora ullam laudantium fugiat consequuntur, quidem exercitationem
-        aspernatur mollitia labore dicta ea!
+        aspernatur mollitia labore dicta ea!dsvfadsfdfsdfdafadf
       </p>
     </div>
   );
