@@ -9,6 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "homepage": "https://michalponiatowski.github.io/lipna.ink/",
   "dependencies": {
     "framer-motion": "^10.18.0",
     "normalize.css": "^8.0.1",
