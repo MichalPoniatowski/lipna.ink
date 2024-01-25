@@ -32,7 +32,7 @@ export const Modal = ({ closeModal, children, open }) => {
   }, [location.pathname]);
 
   return (
-    <div>
+    <div className={css.modalWrapper}>
       <AnimatedBgr />
       <div className={css.modalBrg}>
         <div className={css.modalContainer}>

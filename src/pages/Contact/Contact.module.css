@@ -1,0 +1,31 @@
+.contactWrapper {
+  margin: 20px 20px 0 20px;
+}
+
+.contactText {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-bottom: 20px;
+}
+
+.contactText li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.formWrapper {
+  border: 2px solid black;
+  padding: 20px 20px 0 20px;
+  border-radius: 20px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.formField textarea {
+  height: 100px;
+}

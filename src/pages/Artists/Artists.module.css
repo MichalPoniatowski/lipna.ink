@@ -1,13 +1,15 @@
 .artistWrapper {
   overflow: hidden;
+  /* max-height: calc(80vh - 148px); */
 }
 
 .photo {
   width: 100%;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
   margin-bottom: 20px;
+  max-height: 60vh;
 }
 
 .artistText {

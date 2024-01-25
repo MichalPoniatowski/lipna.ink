@@ -1,6 +1,5 @@
 .wrapper {
-  margin-bottom: 40px;
-  /* background-color: aqua; */
+  margin: 0 10px 40px 10px;
 }
 
 .title {
@@ -11,7 +10,9 @@
 }
 
 .wrapperContent {
-  margin: 0 10px 0 10px;
-  padding-bottom: 20px;
+  /* margin: 0 10px 0 10px; */
+  /* padding-bottom: 20px; */
+  /* height: calc(80vh - 148px); */
+  overflow: hidden;
   border-radius: 30px;
 }

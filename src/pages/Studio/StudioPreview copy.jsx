@@ -1,11 +1,8 @@
 import css from "./Studio.module.css";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-
-import "./studioSwiper.css";
-import { Pagination } from "swiper/modules";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import React from "react";
 
 import studio_1 from "../../assets/photos/studio/studio-1.JPG";
 import studio_2 from "../../assets/photos/studio/studio-2.JPG";
@@ -17,41 +14,44 @@ import studio_7 from "../../assets/photos/studio/studio-7.JPG";
 import studio_8 from "../../assets/photos/studio/studio-8.JPG";
 import studio_9 from "../../assets/photos/studio/studio-9.JPG";
 
-const photos = [
-  { src: studio_1, alt: "studio_1" },
-  { src: studio_2, alt: "studio_2" },
-  { src: studio_3, alt: "studio_3" },
-  { src: studio_4, alt: "studio_4" },
-  { src: studio_5, alt: "studio_5" },
-  { src: studio_6, alt: "studio_6" },
-  { src: studio_7, alt: "studio_7" },
-  { src: studio_8, alt: "studio_8" },
-  { src: studio_9, alt: "studio_9" },
-];
-
 export const StudioPreview = () => {
-  const renderImages = () => {
-    return photos.map((photo) => (
-      <SwiperSlide key={photo.alt} className="swiper-slide">
-        <img src={photo.src} alt={photo.alt} className="swiper-slide img" />
-      </SwiperSlide>
-    ));
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      slidesToSlide: 2, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
   };
 
   return (
     <div>
       <div className={css.studioSwiper}>
-        <Swiper
-          slidesPerView={"auto"}
-          spaceBetween={20}
-          pagination={{
-            dynamicBullets: true,
-          }}
-          modules={[Pagination]}
-          className="studio-swiper"
+        <Carousel
+          responsive={responsive}
+          showDots={true}
+          // infinite={true}
+          arrows={false}
         >
-          {renderImages()}
-        </Swiper>
+          <img src={studio_1} />
+          <img src={studio_2} />
+          <img src={studio_3} />
+          <img src={studio_4} />
+          <img src={studio_5} />
+          <img src={studio_6} />
+          <img src={studio_7} />
+          <img src={studio_8} />
+          <img src={studio_9} />
+        </Carousel>
       </div>
       <p className={css.studioText}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,

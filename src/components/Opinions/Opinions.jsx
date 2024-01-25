@@ -4,18 +4,46 @@ export const Opinions = () => {
   return (
     <div>
       <h2>OPINIE Z GOOGLA</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus quisquam
-        eligendi sint, aperiam ullam delectus sapiente nulla corrupti architecto
-        molestiae nisi earum animi est, ipsum ducimus provident minima cum!
-        Laudantium, tempore officia iusto, nostrum provident repudiandae
-        quisquam, nam a atque voluptatem voluptatum repellendus ea saepe dolorem
-        assumenda vitae consequuntur nesciunt velit enim voluptate. Praesentium
-        necessitatibus molestiae sapiente corporis mollitia odit, explicabo
-        nisi? Id, velit eum. Culpa doloremque vel incidunt iste voluptate ut
-        ipsam, vero repudiandae ad sit amet numquam delectus iusto reprehenderit
-        in nesciunt exercitationem, nam iure? Animi, dolor ut!
-      </p>
     </div>
   );
 };
+
+// import axios from "axios";
+
+// export const Opinions = () => {
+//   const [reviews, setReviews] = useState([]);
+
+//   useEffect(() => {
+//     const fetchReviews = async () => {
+//       try {
+//         const response = await axios.get(
+//           `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,review&key=${apiKey}`
+//         );
+//         setReviews(response.data.result.reviews);
+//         console.log("REVIEWS", response.data.result.reviews);
+//         console.log("RES DATA", response.data);
+//       } catch (error) {
+//         console.error("Błąd podczas pobierania recenzji:", error);
+//       }
+//     };
+
+//     fetchReviews();
+//   }, []);
+
+//   const renderREviews = () => {
+//     reviews.map((review, index) => (
+//       <div key={index}>
+//         <p>Autor: {review.author_name}</p>
+//         <p>Ocena: {review.rating}</p>
+//         <p>Recenzja: {review.text}</p>
+//       </div>
+//     ));
+//   };
+
+//   return (
+//     <div>
+//       <h2>OPINIE Z GOOGLA</h2>
+//       <p>{renderREviews}</p>
+//     </div>
+//   );
+// };

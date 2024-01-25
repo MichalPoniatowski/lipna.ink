@@ -1,0 +1,7 @@
+.galleryBgr {
+  /* background-color: bisque; */
+  background-color: transparent;
+  /* height: calc(80vh - 48px - 60px); */
+  height: calc(80vh - 148px);
+  padding-top: 20px;
+}

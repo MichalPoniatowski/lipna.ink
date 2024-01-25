@@ -1,3 +1,8 @@
+.modalWrapper {
+  z-index: 2;
+  position: relative;
+}
+
 .modalBrg {
   width: 100vw;
   height: 100vh;

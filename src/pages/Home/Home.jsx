@@ -18,12 +18,15 @@ export const Home = () => {
         <ArtistsPreview />
         <Button path="artist" text="Dowiedz sie więcej" />
       </PreviewContainer>
-      <PreviewContainer2 title={"Galeria"} color={"deep-green"}>
+
+      <PreviewContainer2 title={"Galeria"} color={"light-green"}>
         <GalleryPreview />
+        <Button path="gallery" text="Zobacz pełną galerie" />
       </PreviewContainer2>
 
       <PreviewContainer title={"Studio"} color={"beige"}>
         <StudioPreview />
+        <Button path="studio" text="Studio i lokazlizacja" />
       </PreviewContainer>
 
       <PreviewContainer2 title={"Opinie"} color={"light-green"}>
@@ -32,6 +35,7 @@ export const Home = () => {
 
       <PreviewContainer title={"Kontakt"} color={"beige"}>
         <ContactPreview />
+        <Button path="contact" text="Wypełnij formularz kontaktowy" />
       </PreviewContainer>
 
       <PreviewContainer title={"FAQ"} color={"beige"}>
