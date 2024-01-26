@@ -12,12 +12,15 @@ export const Footer = () => {
           <br />
           studio
         </p>
-        <address>
-          ul. Wandy14/16
-          <br />
-          53 320 Wrocław
-        </address>
-        <a href="+48777888666">tel: 777 888 666</a>
+        <a href="https://maps.app.goo.gl/jLiNrDgLBMNMR2wE9" target="_blank">
+          <address>
+            ul. Wandy14/16
+            <br />
+            53 320 Wrocław
+          </address>
+        </a>
+
+        <a href="tel:+48777888666">tel: 777 888 666</a>
       </div>
       <div className={css.footerSocial}>
         <SocialMedia />
