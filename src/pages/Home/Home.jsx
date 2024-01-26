@@ -38,9 +38,10 @@ export const Home = () => {
         <Button path="contact" text="Wypełnij formularz kontaktowy" />
       </PreviewContainer>
 
-      <PreviewContainer title={"FAQ"} color={"beige"}>
+      <PreviewContainer2 title={"FAQ"} color={"deep-green"}>
         <FAQPreview />
-      </PreviewContainer>
+        <Button path="faq" text="Przejżyj wszytskie Q & A" />
+      </PreviewContainer2>
 
       <PreviewContainer2 title={"ART shop"} color={"beige"}>
         <ShopPreview />

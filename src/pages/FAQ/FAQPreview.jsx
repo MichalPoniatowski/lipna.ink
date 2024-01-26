@@ -1,23 +1,40 @@
-// import css from './FAQ.module.css'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import { nanoid } from "nanoid";
+
+import "./FAQswiper.css";
+import css from "./FAQ.module.css";
+
+import questionsAnswears from "./uestionsAnswears.jsx";
 
 export const FAQPreview = () => {
+  const renderQA = () => {
+    return questionsAnswears.map((item) => (
+      <SwiperSlide key={nanoid()} className="swiper-slide">
+        <div className="swiper-faq__wrapper">
+          <div className="swiper-question">{item.question}</div>
+          <div className="swiper-answear">{item.answear}</div>
+        </div>
+        {/* <button className="swiper-button">Wyświetl cały opis</button> */}
+      </SwiperSlide>
+    ));
+  };
+
   return (
-    <div>
-      <h2>STUDIO i LOKALIZACJA</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-        praesentium repellendus inventore dolorem animi provident culpa sed,
-        facere alias magnam ab rem architecto delectus cupiditate, eius
-        doloribus distinctio eveniet? Illum eius deserunt dolores magni ullam
-        molestias laudantium unde asperiores accusantium iusto quo, ad
-        repellendus sit quis enim magnam explicabo minima fugit ratione
-        reprehenderit obcaecati aut corrupti eveniet repellat! Laudantium omnis
-        ea vitae reiciendis atque, laborum iure eos enim illo nisi doloribus
-        placeat corrupti distinctio corporis pariatur inventore culpa, eveniet
-        sequi deleniti neque fuga nostrum! Blanditiis sapiente libero officiis
-        tempora ullam laudantium fugiat consequuntur, quidem exercitationem
-        aspernatur mollitia labore dicta ea!
-      </p>
+    <div className={css.faqWrapper}>
+      <Swiper
+        slidesPerView={"auto"}
+        spaceBetween={20}
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        className="faq-swiper"
+      >
+        {renderQA()}
+      </Swiper>
     </div>
   );
 };
