@@ -1,6 +1,6 @@
 // import css from './Shop.module.css'
 
-export const ShopPreview = () => {
+const ShopPreview = () => {
   return (
     <div>
       <h2>SKLEP</h2>
@@ -21,3 +21,5 @@ export const ShopPreview = () => {
     </div>
   );
 };
+
+export default ShopPreview;

@@ -5,7 +5,7 @@ import css from "./Contact.module.css";
 import { ButtonSubmit } from "../../components/Button/ButtonSubmit";
 import { useEffect, useState } from "react";
 
-export const ContactPreview = () => {
+const ContactPreview = () => {
   // const [formData, setFormData] = useState({});
 
   const hamdelSubmit = (event) => {
@@ -103,3 +103,5 @@ export const ContactPreview = () => {
     </div>
   );
 };
+
+export default ContactPreview;

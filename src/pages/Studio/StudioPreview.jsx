@@ -29,7 +29,7 @@ const photos = [
   { src: studio_9, alt: "studio_9" },
 ];
 
-export const StudioPreview = () => {
+const StudioPreview = () => {
   const renderImages = () => {
     return photos.map((photo) => (
       <SwiperSlide key={photo.alt} className="swiper-slide">
@@ -70,3 +70,5 @@ export const StudioPreview = () => {
     </div>
   );
 };
+
+export default StudioPreview;

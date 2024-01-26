@@ -75,7 +75,9 @@ export const SharedLayout = () => {
           <NavigationPages />
         </Modal>
       )}
-      <Outlet />
+      <Suspense fallback={<div>LOADING.....</div>}>
+        <Outlet />
+      </Suspense>
 
       <Footer />
     </section>

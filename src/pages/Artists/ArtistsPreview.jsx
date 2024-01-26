@@ -1,7 +1,7 @@
 import css from "./Artists.module.css";
 import profilePhoto from "../../assets/photos/jagoda-profile.JPG";
 
-export const ArtistsPreview = () => {
+const ArtistsPreview = () => {
   return (
     <div className={css.artistWrapper}>
       <div className={css.photo}>
@@ -24,3 +24,5 @@ export const ArtistsPreview = () => {
     </div>
   );
 };
+
+export default ArtistsPreview;

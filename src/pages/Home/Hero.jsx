@@ -1,7 +1,7 @@
 import css from "./Hero.module.css";
 import filmSrc from "../../assets/movies/Hero_movie.mp4";
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <div className={css.wrapper}>
       {/* <h2 className={css.title}>SZTUKA ZAPISANA NA SKÓRZE</h2> */}
@@ -22,3 +22,5 @@ export const Hero = () => {
     </div>
   );
 };
+
+export default Hero;

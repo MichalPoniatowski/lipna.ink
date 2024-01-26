@@ -9,7 +9,7 @@ import css from "./FAQ.module.css";
 
 import questionsAnswears from "./uestionsAnswears.jsx";
 
-export const FAQPreview = () => {
+const FAQPreview = () => {
   const renderQA = () => {
     return questionsAnswears.map((item) => (
       <SwiperSlide key={nanoid()} className="swiper-slide">
@@ -38,3 +38,5 @@ export const FAQPreview = () => {
     </div>
   );
 };
+
+export default FAQPreview;

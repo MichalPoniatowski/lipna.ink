@@ -14,7 +14,7 @@ const API_URL = "https://pixabay.com/api/?";
 let page = 1;
 let perPage = 40;
 
-export const GalleryPreview = () => {
+const GalleryPreview = () => {
   const [photos, setPhotos] = useState([]);
 
   const fetchPhotos = async () => {
@@ -76,3 +76,5 @@ export const GalleryPreview = () => {
     </div>
   );
 };
+
+export default GalleryPreview;

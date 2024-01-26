@@ -27,7 +27,7 @@ export const Footer = () => {
       </div>
       <div className={css.footerCopyRights}>
         <p>
-          Copy Right &copy; Lipna.ink
+          &copy; 2024 Lipna.ink
           <br />
           by PoniatProductions
         </p>

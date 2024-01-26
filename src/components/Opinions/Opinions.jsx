@@ -1,6 +1,6 @@
 // import css from './Opinions.module'
 
-export const Opinions = () => {
+const Opinions = () => {
   return (
     <div>
       <h2>OPINIE Z GOOGLA</h2>
@@ -47,3 +47,5 @@ export const Opinions = () => {
 //     </div>
 //   );
 // };
+
+export default Opinions;
