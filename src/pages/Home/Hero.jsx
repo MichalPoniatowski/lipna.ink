@@ -15,7 +15,7 @@ const Hero = () => {
         skórze
       </h2>
       <p></p>
-      <video autoPlay loop muted className={css.backgroundVideo}>
+      <video autoPlay loop muted playsInline className={css.backgroundVideo}>
         <source src={filmSrc} type="video/mp4" />
         Twoja przeglądarka nie obsługujue tego formatu
       </video>
