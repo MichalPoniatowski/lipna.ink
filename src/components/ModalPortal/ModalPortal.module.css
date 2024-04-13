@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  background-color: rgb(202, 102, 20);
+  height: 100px;
+  width: 100%;
+}
+
+.button {
+  background-color: rgb(68, 141, 9);
+  border-radius: 15px;
+
+  height: 40px;
+}
+
+.title {
+  font-weight: 700;
+}
+
+.overlay {
+  background-color: rgb(34, 4, 4, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.text {
+  font-size: 1rem;
+  width: 70vw;
+  background-color: rgb(11, 194, 194);
+  text-align: center;
+}
+
+.childrenWrapper {
+  width: 90vw;
+}

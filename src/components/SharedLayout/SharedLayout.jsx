@@ -37,13 +37,13 @@ export const SharedLayout = () => {
     };
   }, [scrollValue]);
 
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [isModalOpen]);
+  // useEffect(() => {
+  //   if (isModalOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "unset";
+  //   }
+  // }, [isModalOpen]);
 
   return (
     <section className={css.wrapper}>
@@ -70,12 +70,17 @@ export const SharedLayout = () => {
         </IconContext.Provider>
       </div>
 
-      {isModalOpen && (
-        <Modal closeModal={() => setIsModalOpen(false)} open={isModalOpen}>
-          <NavigationPages />
-        </Modal>
-      )}
-      <Suspense fallback={<div>LOADING.....</div>}>
+      <Modal closeModal={() => setIsModalOpen(false)} open={isModalOpen}>
+        <NavigationPages />
+      </Modal>
+
+      <Suspense
+        fallback={
+          <div style={{ marginTop: "150px", fontSize: "5rem" }}>
+            LOADING.....
+          </div>
+        }
+      >
         <Outlet />
       </Suspense>
 

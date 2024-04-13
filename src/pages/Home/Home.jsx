@@ -3,8 +3,9 @@ import { Suspense, lazy } from "react";
 import { PreviewContainer2 } from "../../components/PreviewContainer2/PreviewContainer2";
 import { Button } from "../../components/Button/Button";
 import { PreviewContainer } from "../../components/PreviewContainer/PreviewContainer";
+import { PortalBar } from "../../components/ModalPortal/PortalBar";
 
-const Opinions = lazy(() => import("../../components/Opinions/Opinions"));
+const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const ArtistsPreview = lazy(() => import("../Artists/ArtistsPreview"));
 const ContactPreview = lazy(() => import("../Contact/ContactPreview"));
 const FAQPreview = lazy(() => import("../FAQ/FAQPreview"));
@@ -32,6 +33,8 @@ const Home = () => {
           <Button path="artist" text="Dowiedz sie więcej" />
         </PreviewContainer>
 
+        <PortalBar />
+
         <PreviewContainer2 title={"Galeria"} color={"light-green"}>
           <GalleryPreview />
           <Button path="gallery" text="Zobacz pełną galerie" />
@@ -41,10 +44,6 @@ const Home = () => {
           <StudioPreview />
           <Button path="studio" text="Studio i lokazlizacja" />
         </PreviewContainer>
-
-        <PreviewContainer2 title={"Opinie"} color={"light-green"}>
-          <Opinions />
-        </PreviewContainer2>
 
         <PreviewContainer title={"Kontakt"} color={"beige"}>
           <ContactPreview />
@@ -58,6 +57,10 @@ const Home = () => {
 
         <PreviewContainer2 title={"ART shop"} color={"beige"}>
           <ShopPreview />
+        </PreviewContainer2>
+
+        <PreviewContainer2 title={"Opinie"} color={"light-green"}>
+          <Reviews />
         </PreviewContainer2>
       </Suspense>
     </main>

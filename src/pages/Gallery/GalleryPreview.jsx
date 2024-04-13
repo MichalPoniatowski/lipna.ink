@@ -1,61 +1,92 @@
-import css from "./Gallery.module.css";
-import React, { useEffect, useRef, useState } from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
+import React, { useEffect, useRef, useState } from "react";
+import axios from "axios";
 import "swiper/css";
 import "swiper/css/pagination";
 
 import "./style.css";
 import { Pagination } from "swiper/modules";
-import axios from "axios";
+import css from "./Gallery.module.css";
+import { GALLERY_URL } from "../../../api.URLs.js";
+// import { ButtonEvent } from "../../components/Button/ButtonEvent.jsx";
 
-const KEY = "36285861-168bae95e05873f7547dc914e";
-const API_URL = "https://pixabay.com/api/?";
+const API_URL = GALLERY_URL;
 let page = 1;
-let perPage = 40;
+let perPage = 10;
+let nextPage = false;
 
 const GalleryPreview = () => {
-  const [photos, setPhotos] = useState([]);
+  const [images, setImages] = useState([]);
+  const swiperRef = useRef(null);
 
-  const fetchPhotos = async () => {
+  const fetchImages = async () => {
     try {
       const response = await axios.get(API_URL, {
         params: {
-          key: KEY,
-          q: "tattoo",
-          image_type: "photo",
-          orientation: "horizontal",
-          safesearch: true,
           page: page,
           per_page: perPage,
         },
       });
 
-      return response.data.hits.map((photo) => ({
-        id: photo.id,
-        preview: photo.webformatURL,
-        largeImage: photo.largeImageURL,
-        alt: photo.tags,
+      const convertedResponse = response.data.images.docs.map((image) => ({
+        id: image._id,
+        imageUrl: `${GALLERY_URL + image._id}`,
+        alt: image.image_name,
       }));
+
+      nextPage = response.data.images.hasNextPage;
+
+      return convertedResponse;
     } catch (error) {
-      console.log("ERRORS", error.name, error.message);
+      console.log("Error with fetching images from API: ", error.message);
+      return [];
     }
   };
 
   useEffect(() => {
-    fetchPhotos().then((newPhotos) => {
-      setPhotos(newPhotos);
+    fetchImages().then((newImages) => {
+      setImages(newImages);
     });
   }, []);
 
   useEffect(() => {
-    renderImages();
-  }, [photos]);
+    const swiperInstance = swiperRef.current.swiper;
+
+    const handleSlideChange = () => {
+      let imagesToEnd =
+        swiperInstance.slides.length - swiperInstance.activeIndex;
+      if (imagesToEnd < 3) {
+        loadMoreImages();
+      }
+    };
+
+    if (swiperInstance) {
+      swiperInstance.on("slideChange", handleSlideChange);
+      return () => {
+        swiperInstance.off("slideChange", handleSlideChange);
+      };
+    }
+  }, []);
+
+  const loadMoreImages = async () => {
+    if (nextPage) {
+      page++;
+      const newImages = await fetchImages();
+      setImages((prevImages) => [...prevImages, ...newImages]);
+    } else {
+      console.log("No more results");
+      return null;
+    }
+  };
 
   const renderImages = () => {
-    return photos.map((photo) => (
-      <SwiperSlide key={photo.id} className="swiper-slide">
-        <img src={photo.preview} alt={photo.alt} className="swiper-slide img" />
+    return images.map((image) => (
+      <SwiperSlide key={image.id} className="swiper-slide">
+        <img
+          src={image.imageUrl}
+          alt={image.alt}
+          className="swiper-slide img"
+        />
       </SwiperSlide>
     ));
   };
@@ -67,9 +98,11 @@ const GalleryPreview = () => {
         spaceBetween={20}
         pagination={{
           dynamicBullets: true,
+          clickable: true,
         }}
         modules={[Pagination]}
         className="gallery-swiper"
+        ref={swiperRef}
       >
         {renderImages()}
       </Swiper>

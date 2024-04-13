@@ -1,0 +1,58 @@
+.cardWrapper {
+  /* background-color: rgb(172, 172, 161); */
+  margin: 0 20px 0 20px;
+}
+
+.cardTitle {
+  /* background-color: rgb(179, 179, 20); */
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  height: 80px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.date {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.avatar {
+  background-color: beige;
+  height: 60px;
+  /* width: 60px; */
+}
+
+.user {
+  /* background-color: rgb(26, 138, 91); */
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.rating {
+  /* background-color: beige; */
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.textWrapper {
+  /* background-color: beige; */
+}
+
+.text {
+  /* background-color: rgb(216, 62, 203); */
+  font-size: 1 rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.googleLogo {
+  text-align: center;
+  /* border-top: solid black 3px; */
+  /* height: 20px; */
+  /* background-color: black; */
+}

@@ -29,3 +29,21 @@
 .formField textarea {
   height: 100px;
 }
+
+.hiddenInput {
+  display: none;
+}
+
+.filesButton {
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--light-green);
+  padding: 0 10px;
+
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--beige);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
