@@ -15,8 +15,8 @@ import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
 
 // const logoPAth = "src/assets/logosBrand/full_logo.png";
 // const logoPAth = "src/assets/logosBrand/line_logo.png";
-// const logoPAth = "src/assets/logosBrand/leaf_logo.png";
-const logoPAth = "../../assets/logosBrand/leaf_logo.png";
+const logoPAth = "./src/assets/logosBrand/leafLogo.png";
+// const logoPAth = "../../assets/logosBrand/leafLogo.png";
 
 export const SharedLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
