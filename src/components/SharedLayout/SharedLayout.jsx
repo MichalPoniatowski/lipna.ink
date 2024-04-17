@@ -2,7 +2,6 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 import { TbMenu } from "react-icons/tb";
-import { LuLeaf } from "react-icons/lu";
 import { CgClose } from "react-icons/cg";
 import { IconContext } from "react-icons/lib";
 import { motion } from "framer-motion";
@@ -15,8 +14,8 @@ import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
 
 // const logoPAth = "src/assets/logosBrand/full_logo.png";
 // const logoPAth = "src/assets/logosBrand/line_logo.png";
-const logoPAth = "./src/assets/logosBrand/leafLogo.png";
-// const logoPAth = "../../assets/logosBrand/leafLogo.png";
+// const logoPAth = "./src/assets/logosBrand/leafLogo.png";
+import logoPath from "../../assets/logosBrand/leafLogo.png";
 
 export const SharedLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,7 +70,7 @@ export const SharedLayout = () => {
     <section className={css.wrapper}>
       <div className={`${css.navBar} ${showNavBar ? css.show : css.hide}`}>
         <div className={css.logo}>
-          <img src={logoPAth} alt="logo lipna.ink" />
+          <img src={logoPath} alt="logo lipna.ink" />
           <span className={css.lipna}>lipna.ink</span>
         </div>
 
