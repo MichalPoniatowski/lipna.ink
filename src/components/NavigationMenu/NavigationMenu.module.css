@@ -1,0 +1,27 @@
+.navBrg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  font-size: 1.6rem;
+  margin-top: 76px;
+}
+
+.navContainer {
+  margin-top: 2rem;
+  /* background-color: aquamarine; */
+  /* border-bottom: 3px solid; */
+}
+
+.navPages {
+  border-bottom: 3px solid;
+  color: var(--beige);
+  margin-bottom: 40px;
+  padding-left: 40px;
+  /* margin-left: 20px; */
+}
+
+.navFooter {
+  margin: 0 40px 0 40px;
+}

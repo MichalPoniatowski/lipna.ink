@@ -9,6 +9,7 @@ import { Pagination } from "swiper/modules";
 import css from "./Reviews.module.css";
 import { REVIEWS_URL } from "../../../api.URLs.js";
 import { ReviewCard } from "../ReviewCard/ReviewCard.jsx";
+import { toastError } from "../Toasts/Toasts.js";
 
 const API_URL = REVIEWS_URL;
 let page = 1;
@@ -38,6 +39,9 @@ const Reviews = () => {
       return convertedResponse;
     } catch (error) {
       console.log("Error with fetching images from API: ", error.message);
+      toastError(
+        "Bład podczas pobierania opini. Przełąduj stronę lub spróbuj za chwilę."
+      );
       return [];
     }
   };

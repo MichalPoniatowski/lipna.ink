@@ -24,9 +24,6 @@ export const NavigationPages = () => {
           <li>
             <Link to="/faq">FAQ</Link>
           </li>
-          <li>
-            <Link to="/shop">Sklep</Link>
-          </li>
         </List>
       </nav>
     </Pages>

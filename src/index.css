@@ -23,6 +23,7 @@ body {
   --beige: rgb(241, 241, 220);
   --light-orange: rgb(240, 140, 103);
   --orange: rgb(199, 53, 0);
+  --toastify-bgr-color: #d0fae2;
 }
 
 h1,

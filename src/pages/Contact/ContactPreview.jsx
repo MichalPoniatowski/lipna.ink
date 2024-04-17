@@ -1,13 +1,22 @@
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+// import { toast, ToastContainer, Bounce } from "react-toastify";
 
 import css from "./Contact.module.css";
 import { SEND_CONTACT_FORM_URL } from "../../../api.URLs";
 import { reSizeFiles } from "./resizeFiles";
 import { ContactForm } from "./ContactForm";
 import { Loader } from "../../components/Loader/Loader";
-import { ModalAlert } from "../../components/ModalAlert/ModalAlert";
+// import { ModalAlert } from "../../components/ModalAlert/ModalAlert";
+// import { ModalWrapper } from "../../components/ModalWrapper/ModalWrapper";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  toastSuccess,
+  toastError,
+  toastWarning,
+} from "../../components/Toasts/Toasts";
+("../../components/Toasts");
 
 const ContactPreview = () => {
   const fileSizeLimit = 4 * 1024 * 1024;
@@ -23,12 +32,11 @@ const ContactPreview = () => {
   ];
   const filesTotalNumber = 6;
 
-  // let allertMessage;
-
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isOpenAlert, setIsOpenAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
+  // const [isOpenAlert, setIsOpenAlert] = useState(false);
+  // const [alertMessage, setAlertMessage] = useState("");
+
   const formRef = useRef(null);
 
   const handleFileChange = (event) => {
@@ -61,7 +69,7 @@ const ContactPreview = () => {
   };
 
   const checkFilesNumberAndType = (files) => {
-    let allertMessage = "";
+    let allertMessageToSend = "";
 
     const notAllowedFilesNames = files
       .filter((file) => !allowedTypes.includes(file.type))
@@ -71,35 +79,42 @@ const ContactPreview = () => {
       const filesTypesString = allowedTypes.join(", ");
       const notAllowedFilesNamesStrig = notAllowedFilesNames.join(", ");
 
-      allertMessage += `Dopuszczalne typy plików do wysłania formularza to: ${filesTypesString}
+      allertMessageToSend += `Dopuszczalne typy plików do wysłania formularza to: ${filesTypesString}
       Wybrałeś pliki: ${notAllowedFilesNamesStrig} które nie spełniają kryteriów, wybierz poprawne pliki.`;
     }
 
     if (files.length > filesTotalNumber) {
-      allertMessage += `Dopuszczalna ilość plików to ${filesTotalNumber}, wybrałeś ${files.length} plików, 
+      allertMessageToSend += `Dopuszczalna ilość plików to ${filesTotalNumber}, wybrałeś ${files.length} plików, 
       wybierz pliki zgodnie z limitem. Jeżeli chcesz wysłać więcej plików, możesz wysłać 2gi formularz dodajac w opisie tatuażu taką informację`;
     }
 
-    return allertMessage;
+    // if (allertMessageToSend !== "") {
+    //   setAlertMessage(allertMessageToSend);
+    // }
+
+    return allertMessageToSend;
   };
 
-  useEffect(() => {
-    if (alertMessage !== "") {
-      setIsOpenAlert(true);
-    }
-  }, [alertMessage]);
+  // useEffect(() => {
+  //   if (alertMessage !== "") {
+  //     setIsOpenAlert(true);
+  //     // setIsLoading(false);
+  //   }
+  // }, [alertMessage]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     let proccessedFiles = [];
     setIsLoading(true);
 
-    const alertMessage = checkFilesNumberAndType(files);
+    const messageForAlert = checkFilesNumberAndType(files);
+    // checkFilesNumberAndType(files);
 
-    if (alertMessage !== "") {
-      setAlertMessage(alertMessage);
-      setIsOpenAlert(true);
+    if (messageForAlert !== "") {
+      // setAlertMessage(messageForAlert);
+      // setIsOpenAlert(true);
       setIsLoading(false);
+      toastWarning(messageForAlert);
       return;
     }
 
@@ -126,10 +141,16 @@ const ContactPreview = () => {
         },
       });
       console.log("FORM SEND SUCCESSFULY", response.data);
+      toastSuccess(
+        "Formularz wysłany poprawnie. Na podany przez Ciebie adres mailowy została wysłana kopia formularza."
+      );
 
       formRef.current.reset();
       setFiles([]);
     } catch (error) {
+      toastError(
+        "Bład poczas wysyłania formularza. Sprawdż dane oraz załączniki i spróbuj jeszcze raz."
+      );
       console.error("Error during sending form", error.message);
     } finally {
       setIsLoading(false);
@@ -143,13 +164,17 @@ const ContactPreview = () => {
 
   return (
     <div className={css.contactWrapper}>
-      <>
+      {/* <>
         {isOpenAlert && (
-          <ModalAlert open={isOpenAlert} onClose={() => setIsOpenAlert(false)}>
+          <ModalWrapper open={isOpenAlert} portal={"portal-alert"}>
             <p>{alertMessage}</p>
-          </ModalAlert>
+            <button
+              type="button"
+              onClick={() => setIsOpenAlert(false)}
+            ></button>
+          </ModalWrapper>
         )}
-      </>
+      </> */}
 
       <div className={css.contactText}>
         <h3>Jeżeli chcesz zapytać o:</h3>

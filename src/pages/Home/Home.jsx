@@ -3,16 +3,15 @@ import { Suspense, lazy } from "react";
 import { PreviewContainer2 } from "../../components/PreviewContainer2/PreviewContainer2";
 import { Button } from "../../components/Button/Button";
 import { PreviewContainer } from "../../components/PreviewContainer/PreviewContainer";
-import { PortalBar } from "../../components/ModalPortal/PortalBar";
 
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const ArtistsPreview = lazy(() => import("../Artists/ArtistsPreview"));
 const ContactPreview = lazy(() => import("../Contact/ContactPreview"));
 const FAQPreview = lazy(() => import("../FAQ/FAQPreview"));
 const GalleryPreview = lazy(() => import("../Gallery/GalleryPreview"));
-const ShopPreview = lazy(() => import("../Shop/ShopPreview"));
 const StudioPreview = lazy(() => import("../Studio/StudioPreview"));
 const Hero = lazy(() => import("./Hero"));
+const Footer = lazy(() => import("../../components/Footer/Footer"));
 
 // import { Opinions } from "../../components/Opinions/Opinions";
 // import { ArtistsPreview } from "../Artists/ArtistsPreview";
@@ -22,6 +21,7 @@ const Hero = lazy(() => import("./Hero"));
 // import { ShopPreview } from "../Shop/ShopPreview";
 // import { StudioPreview } from "../Studio/StudioPreview";
 // import { Hero } from "./Hero";
+// import {Footer} from '../../components/Footer/Footer'
 
 const Home = () => {
   return (
@@ -32,8 +32,6 @@ const Home = () => {
           <ArtistsPreview />
           <Button path="artist" text="Dowiedz sie więcej" />
         </PreviewContainer>
-
-        <PortalBar />
 
         <PreviewContainer2 title={"Galeria"} color={"light-green"}>
           <GalleryPreview />
@@ -55,13 +53,11 @@ const Home = () => {
           <Button path="faq" text="Przejżyj wszytskie Q & A" />
         </PreviewContainer2>
 
-        <PreviewContainer2 title={"ART shop"} color={"beige"}>
-          <ShopPreview />
-        </PreviewContainer2>
-
         <PreviewContainer2 title={"Opinie"} color={"light-green"}>
           <Reviews />
         </PreviewContainer2>
+
+        <Footer />
       </Suspense>
     </main>
   );

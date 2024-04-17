@@ -8,6 +8,8 @@ import "./style.css";
 import { Pagination } from "swiper/modules";
 import css from "./Gallery.module.css";
 import { GALLERY_URL } from "../../../api.URLs.js";
+import { toastError } from "../../components/Toasts/Toasts.js";
+
 // import { ButtonEvent } from "../../components/Button/ButtonEvent.jsx";
 
 const API_URL = GALLERY_URL;
@@ -39,6 +41,9 @@ const GalleryPreview = () => {
       return convertedResponse;
     } catch (error) {
       console.log("Error with fetching images from API: ", error.message);
+      toastError(
+        "Bład podczas pobierania galerii. Przełąduj stronę lub spróbuj za chwilę."
+      );
       return [];
     }
   };

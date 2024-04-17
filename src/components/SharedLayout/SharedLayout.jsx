@@ -1,17 +1,21 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
-import style from "../../assets/icons/Icons.module.css";
-import { Modal } from "../Modal/Modal";
-import css from "./SharedLayout.module.css";
-import { Footer } from "../Footer/Footer";
-import { NavigationPages } from "../NavigationPages/NavigationPages";
-
 import { TbMenu } from "react-icons/tb";
 import { LuLeaf } from "react-icons/lu";
 import { CgClose } from "react-icons/cg";
 import { IconContext } from "react-icons/lib";
 import { motion } from "framer-motion";
+
+import style from "../../assets/icons/Icons.module.css";
+import css from "./SharedLayout.module.css";
+// import { Footer } from "../Footer/Footer";
+import { Modal } from "../Modal/Modal";
+import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
+
+const logoPAth = "src/assets/logosBrand/full_logo.png";
+// const logoPAth = "src/assets/logosBrand/line_logo.png";
+// const logoPAth = "src/assets/logosBrand/leaf_logo.png";
 
 export const SharedLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,20 +41,38 @@ export const SharedLayout = () => {
     };
   }, [scrollValue]);
 
-  // useEffect(() => {
-  //   if (isModalOpen) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "unset";
-  //   }
-  // }, [isModalOpen]);
+  const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
+
+  const handleDocClick = (event) => {
+    if (
+      event.target.tagName === "A" &&
+      new URL(event.target.href).pathname === location.pathname
+    ) {
+      setIsModalOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleDocClick);
+    return () => {
+      document.removeEventListener("click", handleDocClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname !== prevPathRef.current) {
+      setIsModalOpen(false);
+    }
+  }, [location.pathname]);
 
   return (
     <section className={css.wrapper}>
       <div className={`${css.navBar} ${showNavBar ? css.show : css.hide}`}>
         <div className={css.logo}>
-          <LuLeaf size="2rem " className={style.icons} />
-          <span className={css.lipna}>LIPNA</span>
+          {/* <LuLeaf size="2rem " className={style.icons} /> */}
+          <img src={logoPAth} alt="logo lipna.ink" />
+          <span className={css.lipna}>lipna.ink</span>
         </div>
 
         <IconContext.Provider value={{ size: "2rem", className: style.icons }}>
@@ -70,8 +92,8 @@ export const SharedLayout = () => {
         </IconContext.Provider>
       </div>
 
-      <Modal closeModal={() => setIsModalOpen(false)} open={isModalOpen}>
-        <NavigationPages />
+      <Modal portal={"portal-modal-nav"} open={isModalOpen}>
+        <NavigationMenu />
       </Modal>
 
       <Suspense
@@ -84,7 +106,7 @@ export const SharedLayout = () => {
         <Outlet />
       </Suspense>
 
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 };
