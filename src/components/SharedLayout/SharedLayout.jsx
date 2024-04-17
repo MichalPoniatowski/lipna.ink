@@ -13,9 +13,9 @@ import css from "./SharedLayout.module.css";
 import { Modal } from "../Modal/Modal";
 import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
 
-const logoPAth = "src/assets/logosBrand/full_logo.png";
+// const logoPAth = "src/assets/logosBrand/full_logo.png";
 // const logoPAth = "src/assets/logosBrand/line_logo.png";
-// const logoPAth = "src/assets/logosBrand/leaf_logo.png";
+const logoPAth = "src/assets/logosBrand/leaf_logo.png";
 
 export const SharedLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,7 +70,6 @@ export const SharedLayout = () => {
     <section className={css.wrapper}>
       <div className={`${css.navBar} ${showNavBar ? css.show : css.hide}`}>
         <div className={css.logo}>
-          {/* <LuLeaf size="2rem " className={style.icons} /> */}
           <img src={logoPAth} alt="logo lipna.ink" />
           <span className={css.lipna}>lipna.ink</span>
         </div>
