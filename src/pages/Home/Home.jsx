@@ -4,7 +4,6 @@ import { PreviewContainer2 } from "../../components/PreviewContainer2/PreviewCon
 import { Button } from "../../components/Button/Button";
 import { PreviewContainer } from "../../components/PreviewContainer/PreviewContainer";
 import { Loader } from "../../components/Loader/Loader";
-// import { SplashScreen } from "../../components/SplashScreen/SplashScreen";
 
 const Reviews = lazy(() => import("../../components/Reviews/Reviews"));
 const ArtistsPreview = lazy(() => import("../Artists/ArtistsPreview"));
@@ -13,16 +12,6 @@ const FAQPreview = lazy(() => import("../FAQ/FAQPreview"));
 const GalleryPreview = lazy(() => import("../Gallery/GalleryPreview"));
 const StudioPreview = lazy(() => import("../Studio/StudioPreview"));
 const Hero = lazy(() => import("./Hero"));
-
-// import { Opinions } from "../../components/Opinions/Opinions";
-// import { ArtistsPreview } from "../Artists/ArtistsPreview";
-// import { ContactPreview } from "../Contact/ContactPreview";
-// import { FAQPreview } from "../FAQ/FAQPreview";
-// import { GalleryPreview } from "../Gallery/GalleryPreview";
-// import { ShopPreview } from "../Shop/ShopPreview";
-// import { StudioPreview } from "../Studio/StudioPreview";
-// import { Hero } from "./Hero";
-// import {Footer} from '../../components/Footer/Footer'
 
 const Home = () => {
   return (
