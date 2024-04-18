@@ -8,16 +8,13 @@ import { motion } from "framer-motion";
 
 import style from "../../assets/icons/Icons.module.css";
 import css from "./SharedLayout.module.css";
-// import { Footer } from "../Footer/Footer";
+import { Footer } from "../Footer/Footer";
 import { Modal } from "../Modal/Modal";
 import { NavigationMenu } from "../NavigationMenu/NavigationMenu";
 
-// const logoPAth = "src/assets/logosBrand/full_logo.png";
-// const logoPAth = "src/assets/logosBrand/line_logo.png";
-// const logoPAth = "./src/assets/logosBrand/leafLogo.png";
 import logoPath from "../../assets/logosBrand/leafLogo.png";
 
-export const SharedLayout = () => {
+const SharedLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrollValue, setScrollValue] = useState(0);
   const [showNavBar, setShowNavBar] = useState(true);
@@ -49,7 +46,12 @@ export const SharedLayout = () => {
       event.target.tagName === "A" &&
       new URL(event.target.href).pathname === location.pathname
     ) {
+      event.preventDefault();
+      console.log("EVENT TARGET", event.target.tagName);
+      console.log("LOCATION PATH", location.pathname);
+      console.log("EVENT TARGET HREF", event.target.href);
       setIsModalOpen(false);
+      console.log("Modal closed because already on: " + location.pathname);
     }
   };
 
@@ -58,12 +60,13 @@ export const SharedLayout = () => {
     return () => {
       document.removeEventListener("click", handleDocClick);
     };
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (location.pathname !== prevPathRef.current) {
       setIsModalOpen(false);
     }
+    prevPathRef.current = location.pathname;
   }, [location.pathname]);
 
   return (
@@ -92,20 +95,12 @@ export const SharedLayout = () => {
       </div>
 
       <Modal portal={"portal-modal-nav"} open={isModalOpen}>
-        <NavigationMenu />
+        <NavigationMenu onClose={() => setIsModalOpen(false)} />
       </Modal>
-
-      <Suspense
-        fallback={
-          <div style={{ marginTop: "150px", fontSize: "5rem" }}>
-            LOADING.....
-          </div>
-        }
-      >
-        <Outlet />
-      </Suspense>
-
-      {/* <Footer /> */}
+      <Outlet />
+      <Footer />
     </section>
   );
 };
+
+export default SharedLayout;

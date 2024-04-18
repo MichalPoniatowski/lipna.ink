@@ -2,7 +2,7 @@ import { SocialMedia } from "../SocialMedia/SocialMedia";
 import { AnimatedBgr2 } from "./AnimatedBgr2/AnimatedBgr2";
 import css from "./Footer.module.css";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={css.footerWrapper}>
       <AnimatedBgr2 />
@@ -36,4 +36,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+// export default Footer;

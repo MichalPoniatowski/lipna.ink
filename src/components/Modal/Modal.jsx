@@ -13,7 +13,7 @@ export const Modal = ({ portal, children, open }) => {
       setTimeout(() => setIsVisible(true), 10);
     } else {
       setIsVisible(false);
-      setTimeout(() => setShouldRender(false), 1000);
+      setTimeout(() => setShouldRender(false), 500);
     }
   }, [open]);
 

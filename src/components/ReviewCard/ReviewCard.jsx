@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { pl } from "date-fns/locale"; // Importuje lokalizację polską
+import { pl } from "date-fns/locale";
 import { FcGoogle } from "react-icons/fc";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
@@ -12,7 +12,9 @@ export const ReviewCard = ({ user, rating, image, text, date }) => {
   return (
     <div className={css.cardWrapper}>
       <div className={css.cardTitle}>
-        {image && <img src={image} alt={""} className={css.avatar}></img>}
+        {image && (
+          <img src={image} alt={""} className={css.avatar} loading="lazy"></img>
+        )}
 
         <div>
           <h3 className={css.user}>{user}</h3>

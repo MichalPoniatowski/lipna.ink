@@ -1,9 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
 
 import "./App.css";
-import { SharedLayout } from "./components/SharedLayout/SharedLayout";
+// import { SharedLayout } from "./components/SharedLayout/SharedLayout";
+const SharedLayout = lazy(() =>
+  import("./components/SharedLayout/SharedLayout")
+);
 
 const Artists = lazy(() => import("./pages/Artists/Artists"));
 
@@ -24,7 +27,12 @@ const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 // import { FAQ } from "./pages/FAQ/FAQ";
 // import { NotFound } from "./pages/NotFound/NotFound";
 
-function App() {
+function App({ setLoading }) {
+  useEffect(() => {
+    setLoading(false);
+    console.log("App has loaded, setting loading to false.");
+  }, [setLoading]);
+
   return (
     <div>
       <Routes>

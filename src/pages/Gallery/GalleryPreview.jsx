@@ -91,6 +91,7 @@ const GalleryPreview = () => {
           src={image.imageUrl}
           alt={image.alt}
           className="swiper-slide img"
+          loading="lazy"
         />
       </SwiperSlide>
     ));
