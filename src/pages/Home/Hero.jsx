@@ -28,23 +28,15 @@
 import React, { useState, useEffect } from "react";
 import css from "./Hero.module.css";
 import filmSrc from "../../assets/movies/Hero_movie.mp4";
+import { Loader } from "../../components/Loader/Loader";
 
 const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
-  useEffect(() => {
-    const video = document.querySelector(`.${css.backgroundVideo}`);
-
-    const handleCanPlay = () => {
-      setVideoLoaded(true);
-    };
-
-    video.addEventListener("canplaythrough", handleCanPlay);
-
-    return () => {
-      video.removeEventListener("canplaythrough", handleCanPlay);
-    };
-  }, []);
+  // Przygotowanie funkcji do obsługi zdarzenia załadowania wideo
+  const handleLoadedData = () => {
+    setVideoLoaded(true);
+  };
 
   return (
     <div className={css.wrapper}>
@@ -58,10 +50,19 @@ const Hero = () => {
         skórze
       </h2>
 
-      <video autoPlay loop muted playsInline className={css.backgroundVideo}>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className={css.backgroundVideo}
+        onLoadedData={handleLoadedData}
+      >
         <source src={filmSrc} type="video/mp4" />
-        Twoja przeglądarka nie obsługujue tego formatu
+        Twoja przeglądarka nie obsługuje tego formatu wideo.
       </video>
+
+      {!videoLoaded && <Loader />}
     </div>
   );
 };
