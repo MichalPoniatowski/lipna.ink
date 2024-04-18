@@ -10,7 +10,7 @@ export const Modal = ({ portal, children, open }) => {
   useEffect(() => {
     if (open) {
       setShouldRender(true);
-      setTimeout(() => setIsVisible(true), 10);
+      setTimeout(() => setIsVisible(true), 5);
     } else {
       setIsVisible(false);
       setTimeout(() => setShouldRender(false), 500);

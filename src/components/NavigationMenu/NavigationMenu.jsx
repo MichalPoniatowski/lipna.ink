@@ -1,9 +1,11 @@
 import { useLocation } from "react-router-dom";
-
 import css from "./NavigationMenu.module.css";
+import { Suspense, lazy } from "react";
+
+// import { AnimatedBgr } from "../AnimatedBgr/AnimatedBgr";
 import { Link, Pages, List, ListItem } from "./NavigationPages.styled.js";
-import { AnimatedBgr } from "../AnimatedBgr/AnimatedBgr";
 import { SocialMedia } from "../SocialMedia/SocialMedia";
+const AnimatedBgr = lazy(() => import("../AnimatedBgr/AnimatedBgr"));
 
 export const NavigationMenu = ({ onClose }) => {
   const location = useLocation();
@@ -17,7 +19,10 @@ export const NavigationMenu = ({ onClose }) => {
 
   return (
     <div className={css.navBrg}>
-      <AnimatedBgr />
+      <Suspense fallback={<div></div>}>
+        <AnimatedBgr />
+      </Suspense>
+
       <div className={css.navBrg}>
         <div className={css.navContainer}>
           <div className={css.navPages}>

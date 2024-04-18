@@ -1,10 +1,9 @@
 .footerWrapper {
-  /* height: 800px; */
   position: relative;
-
-  overflow: hidden; /* Zapobiega wyświetlaniu się animacji poza footerem */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 .footerAdress {
@@ -35,10 +34,8 @@
 
 .footerSocial {
   padding: 30px 50px;
-  /* padding-left: 50px; */
   border-top: 2px solid var(--beige);
   border-bottom: 2px solid var(--beige);
-  /* position: relative; */
 }
 
 .footerCopyRights {

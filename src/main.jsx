@@ -6,7 +6,6 @@ import { ToastContainer } from "react-toastify";
 const App = lazy(() => import("./App.jsx"));
 import "./index.css";
 import { SplashScreen } from "./components/SplashScreen/SplashScreen.jsx";
-// import { SplashBgr } from "./components/SplashScreen/SplashBgr.jsx";
 
 const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
@@ -32,17 +31,15 @@ const RootComponent = () => {
 
   return (
     <React.StrictMode>
-      <SplashScreen isOpen={loading} />
-      <Suspense>
+      <Suspense fallback={<div></div>}>
         <BrowserRouter basename="/lipna.ink">
           <App setLoading={setLoading} />
           <ToastContainer limit={1} />
         </BrowserRouter>
       </Suspense>
+      <SplashScreen isOpen={loading} />
     </React.StrictMode>
   );
 };
 
 root.render(<RootComponent />);
-
-// fallback={<SplashBgr />}

@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -99,19 +99,21 @@ const GalleryPreview = () => {
 
   return (
     <div className={css.galleryBgr}>
-      <Swiper
-        slidesPerView={"auto"}
-        spaceBetween={20}
-        pagination={{
-          dynamicBullets: true,
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="gallery-swiper"
-        ref={swiperRef}
-      >
-        {renderImages()}
-      </Swiper>
+      <Suspense fallback={<div>LOADING</div>}>
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={20}
+          pagination={{
+            dynamicBullets: true,
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="gallery-swiper"
+          ref={swiperRef}
+        >
+          {renderImages()}
+        </Swiper>
+      </Suspense>
     </div>
   );
 };

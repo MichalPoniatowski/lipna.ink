@@ -25,6 +25,8 @@
   animation-duration: 18;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+
+  /* will-change: transform; */
 }
 
 .background span:nth-child(0) {

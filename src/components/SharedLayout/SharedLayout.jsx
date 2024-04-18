@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 import { TbMenu } from "react-icons/tb";
@@ -18,15 +18,30 @@ const SharedLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [scrollValue, setScrollValue] = useState(0);
   const [showNavBar, setShowNavBar] = useState(true);
+  const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
 
-  const controllNavBar = () => {
+  const throttle = (func, limit) => {
+    let inThrottle;
+    return function () {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => (inThrottle = false), limit);
+      }
+    };
+  };
+
+  const controllNavBar = throttle(() => {
     if (window.scrollY > scrollValue) {
       setShowNavBar(false);
     } else {
       setShowNavBar(true);
     }
     setScrollValue(window.scrollY);
-  };
+  }, 1000);
 
   useEffect(() => {
     addEventListener("scroll", controllNavBar);
@@ -38,22 +53,18 @@ const SharedLayout = () => {
     };
   }, [scrollValue]);
 
-  const location = useLocation();
-  const prevPathRef = useRef(location.pathname);
-
-  const handleDocClick = (event) => {
-    if (
-      event.target.tagName === "A" &&
-      new URL(event.target.href).pathname === location.pathname
-    ) {
-      event.preventDefault();
-      console.log("EVENT TARGET", event.target.tagName);
-      console.log("LOCATION PATH", location.pathname);
-      console.log("EVENT TARGET HREF", event.target.href);
-      setIsModalOpen(false);
-      console.log("Modal closed because already on: " + location.pathname);
-    }
-  };
+  const handleDocClick = useCallback(
+    (event) => {
+      if (
+        event.target.tagName === "A" &&
+        new URL(event.target.href).pathname === location.pathname
+      ) {
+        event.preventDefault();
+        setIsModalOpen(false);
+      }
+    },
+    [location.pathname]
+  );
 
   useEffect(() => {
     document.addEventListener("click", handleDocClick);

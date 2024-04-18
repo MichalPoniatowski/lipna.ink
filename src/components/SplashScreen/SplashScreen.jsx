@@ -48,5 +48,3 @@ export const SplashScreen = ({ isOpen }) => {
       )
     : null;
 };
-
-// export default SplashScreen;

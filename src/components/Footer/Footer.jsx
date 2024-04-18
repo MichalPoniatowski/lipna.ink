@@ -1,11 +1,17 @@
+import { Suspense, lazy } from "react";
 import { SocialMedia } from "../SocialMedia/SocialMedia";
-import { AnimatedBgr2 } from "./AnimatedBgr2/AnimatedBgr2";
+
+const AnimatedBgr2 = lazy(() => import("./AnimatedBgr2/AnimatedBgr2"));
+// import { AnimatedBgr2 } from "./AnimatedBgr2/AnimatedBgr2";
 import css from "./Footer.module.css";
 
 export const Footer = () => {
   return (
     <footer className={css.footerWrapper}>
-      <AnimatedBgr2 />
+      <Suspense fallback={<div></div>}>
+        <AnimatedBgr2 />
+      </Suspense>
+
       <div className={css.footerAdress}>
         <p>
           Lipna tattoo

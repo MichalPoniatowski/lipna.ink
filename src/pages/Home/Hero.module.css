@@ -1,13 +1,12 @@
 .wrapper {
   /* background-color: grey; */
-  width: 100%;
-  height: 85vh;
+  max-width: 100%;
+  height: 80vh;
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
   padding: 0;
   margin-bottom: 40px;
-  /* display: flex; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

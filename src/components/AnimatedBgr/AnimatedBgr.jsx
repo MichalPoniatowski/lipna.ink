@@ -1,6 +1,6 @@
 import css from "./AnimatedBgr.module.css";
 
-export const AnimatedBgr = () => {
+const AnimatedBgr = () => {
   return (
     <div className={css.background}>
       <span></span>
@@ -29,3 +29,5 @@ export const AnimatedBgr = () => {
     </div>
   );
 };
+
+export default AnimatedBgr;
