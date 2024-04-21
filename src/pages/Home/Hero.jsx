@@ -28,15 +28,14 @@
 import React, { useState, useEffect } from "react";
 import css from "./Hero.module.css";
 import filmSrc from "../../assets/movies/Hero_movie.mp4";
-import { Loader } from "../../components/Loader/Loader";
+// import { Loader } from "../../components/Loader/Loader";
 
 const Hero = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  // const [videoLoaded, setVideoLoaded] = useState(false);
 
-  // Przygotowanie funkcji do obsługi zdarzenia załadowania wideo
-  const handleLoadedData = () => {
-    setVideoLoaded(true);
-  };
+  // const handleLoadedData = () => {
+  //   setVideoLoaded(true);
+  // };
 
   return (
     <div className={css.wrapper}>
@@ -56,13 +55,13 @@ const Hero = () => {
         muted
         playsInline
         className={css.backgroundVideo}
-        onLoadedData={handleLoadedData}
+        // onLoadedData={handleLoadedData}
       >
         <source src={filmSrc} type="video/mp4" />
         Twoja przeglądarka nie obsługuje tego formatu wideo.
       </video>
 
-      {!videoLoaded && <Loader />}
+      {/* {!videoLoaded && <Loader />} */}
     </div>
   );
 };

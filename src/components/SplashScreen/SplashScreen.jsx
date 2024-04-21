@@ -31,9 +31,9 @@ export const SplashScreen = ({ isOpen }) => {
             <div className={css.logo}>
               <img src={logoPath} alt="lipna logo full" />
             </div>
-            <div className={css.loader}>
+            <div>
               <BarLoader
-                color="var(--toastify-bgr-color)"
+                color="var(--beige)"
                 cssOverride={{}}
                 height={10}
                 loading

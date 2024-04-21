@@ -108,6 +108,7 @@ const GalleryPreview = () => {
             clickable: true,
           }}
           modules={[Pagination]}
+          lazy="true"
           className="gallery-swiper"
           ref={swiperRef}
         >

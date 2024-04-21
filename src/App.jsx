@@ -9,7 +9,6 @@ const SharedLayout = lazy(() =>
 );
 
 const Artists = lazy(() => import("./pages/Artists/Artists"));
-
 const Home = lazy(() => import("./pages/Home/Home"));
 const Gallery = lazy(() => import("./pages/Gallery/Gallery"));
 const Studio = lazy(() => import("./pages/Studio/Studio"));
