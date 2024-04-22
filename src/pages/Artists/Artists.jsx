@@ -2,10 +2,10 @@ import { FaPaw } from "react-icons/fa6";
 
 import css from "./Artists.module.css";
 
-import profilePhoto from "../../assets/photos/jagoda-profile2.JPG";
+import profilePhoto from "../../assets/photos/jagoda-profile2.jpg";
 import moonWomen from "../../assets/graphics/moon_women.jpg";
 import panda from "../../assets/graphics/panda.jpg";
-import otter from "../../assets/graphics/otter.JPG";
+import otter from "../../assets/graphics/otter.jpg";
 
 import logoPath from "../../assets/logosBrand/leafLogo.png";
 
