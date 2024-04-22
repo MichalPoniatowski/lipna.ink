@@ -33,6 +33,7 @@ const photos = [
 import { SwiperArtist } from "./SwiperArtist";
 
 const Artists = () => {
+  console.log("NICE");
   return (
     <div className={css.wrapper}>
       <div className={css.wrapperContent}>
