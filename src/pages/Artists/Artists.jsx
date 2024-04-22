@@ -9,11 +9,14 @@ import otter from "../../assets/graphics/otter.JPG";
 
 import logoPath from "../../assets/logosBrand/leafLogo.png";
 
-import aura_1 from "../../assets/photos/aura/aura1.jpg";
-import aura_2 from "../../assets/photos/aura/aura2.jpg";
-import aura_3 from "../../assets/photos/aura/aura3.jpg";
-import aura_4 from "../../assets/photos/aura/aura4.jpg";
-import aura_5 from "../../assets/photos/aura/aura5.jpg";
+import aura_1 from "../../assets/photos/artis-page/aura1.jpg";
+import aura_2 from "../../assets/photos/artis-page/aura2.jpg";
+import aura_3 from "../../assets/photos/artis-page/aura3.jpg";
+import aura_4 from "../../assets/photos/artis-page/aura4.jpg";
+import aura_5 from "../../assets/photos/artis-page/aura5.jpg";
+import holidays1 from "../../assets/photos/artis-page/holidays1.jpg";
+import holidays2 from "../../assets/photos/artis-page/holidays1.jpg";
+import painting1 from "../../assets/photos/artis-page/painting1.jpg";
 
 const photos = [
   { src: aura_1, alt: "aura_1" },
@@ -21,6 +24,10 @@ const photos = [
   { src: aura_3, alt: "aura_3" },
   { src: aura_4, alt: "aura_4" },
   { src: aura_5, alt: "aura_5" },
+
+  { src: holidays1, alt: "holidays1" },
+  { src: holidays2, alt: "holidays2" },
+  { src: painting1, alt: "painting1" },
 ];
 
 import { SwiperArtist } from "./SwiperArtist";
