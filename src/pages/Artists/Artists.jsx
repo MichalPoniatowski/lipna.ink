@@ -5,7 +5,7 @@ import css from "./Artists.module.css";
 import profilePhoto from "../../assets/photos/jagoda-profile2.jpg";
 import moonWomen from "../../assets/graphics/moon_women.jpg";
 import panda from "../../assets/graphics/panda.jpg";
-import otter from "../../assets/graphics/otter.jpg";
+import otter from "../../assets/graphics/otter.JPG";
 
 import logoPath from "../../assets/logosBrand/leafLogo.png";
 
