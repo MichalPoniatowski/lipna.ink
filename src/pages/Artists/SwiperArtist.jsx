@@ -24,10 +24,6 @@ export const SwiperArtist = ({ photos }) => {
       <Swiper
         slidesPerView={"auto"}
         spaceBetween={20}
-        //   pagination={{
-        //     dynamicBullets: true,
-        //   }}
-        //   modules={[Pagination]}
         lazy="true"
         className="artist-swiper"
         autoplay={{

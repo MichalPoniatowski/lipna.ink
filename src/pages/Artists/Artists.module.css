@@ -32,7 +32,6 @@
 .title {
   font-size: 2rem;
   font-weight: 700;
-  /* font-family: "Archivo"; */
   text-shadow: 4px 4px 3px rgba(2, 2, 2, 1);
   color: var(--beige);
   padding-left: 10px;
