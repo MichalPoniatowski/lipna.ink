@@ -32,7 +32,7 @@ const RootComponent = () => {
   return (
     <React.StrictMode>
       <Suspense fallback={<div></div>}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/lipna.ink/">
           <App setLoading={setLoading} />
           <ToastContainer limit={1} />
         </BrowserRouter>
