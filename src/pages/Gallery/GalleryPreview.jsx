@@ -1,57 +1,55 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import React, { Suspense, useEffect, useRef, useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import "swiper/css";
 import "swiper/css/pagination";
 
 import "./style.css";
 import { Pagination } from "swiper/modules";
 import css from "./Gallery.module.css";
-import { GALLERY_URL } from "../../../api.URLs.js";
-import { toastError } from "../../components/Toasts/Toasts.js";
+import {
+  getImages,
+  getMoreImages,
+} from "../../redux/gallery/API-actions-gallery";
+import {
+  selectImages,
+  selectIsLoading,
+  selectError,
+  selectNextPage,
+  selectCurrentPage,
+} from "../../redux/gallery/selectors-gallery";
 
-// import { ButtonEvent } from "../../components/Button/ButtonEvent.jsx";
-
-const API_URL = GALLERY_URL;
-let page = 1;
-let perPage = 10;
-let nextPage = false;
+// import { toastError } from "../../components/Toasts/Toasts.js";
 
 const GalleryPreview = () => {
-  const [images, setImages] = useState([]);
   const swiperRef = useRef(null);
+  const dispatch = useDispatch();
 
-  const fetchImages = async () => {
-    try {
-      const response = await axios.get(API_URL, {
-        params: {
-          page: page,
-          per_page: perPage,
-        },
-      });
+  const images = useSelector(selectImages);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const nextPage = useSelector(selectNextPage);
+  const currentPage = useSelector(selectCurrentPage);
 
-      const convertedResponse = response.data.images.docs.map((image) => ({
-        id: image._id,
-        imageUrl: `${GALLERY_URL + image._id}`,
-        alt: image.image_name,
-      }));
-
-      nextPage = response.data.images.hasNextPage;
-
-      return convertedResponse;
-    } catch (error) {
-      console.log("Error with fetching images from API: ", error.message);
-      toastError(
-        "Bład podczas pobierania galerii. Przełąduj stronę lub spróbuj za chwilę."
-      );
-      return [];
+  const loadMoreImages = async () => {
+    // console.log("NEXT PAGE?", nextPage);
+    if (nextPage && !isLoading) {
+      dispatch(getMoreImages(currentPage + 1));
+    } else {
+      console.log("No more results");
+      return null;
     }
   };
 
   useEffect(() => {
-    fetchImages().then((newImages) => {
-      setImages(newImages);
-    });
+    const handleScroll = (event) => {
+      // Logika obsługi przewijania
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -60,7 +58,7 @@ const GalleryPreview = () => {
     const handleSlideChange = () => {
       let imagesToEnd =
         swiperInstance.slides.length - swiperInstance.activeIndex;
-      if (imagesToEnd < 3) {
+      if (imagesToEnd < 3 && nextPage) {
         loadMoreImages();
       }
     };
@@ -71,18 +69,7 @@ const GalleryPreview = () => {
         swiperInstance.off("slideChange", handleSlideChange);
       };
     }
-  }, []);
-
-  const loadMoreImages = async () => {
-    if (nextPage) {
-      page++;
-      const newImages = await fetchImages();
-      setImages((prevImages) => [...prevImages, ...newImages]);
-    } else {
-      console.log("No more results");
-      return null;
-    }
-  };
+  }, [swiperRef, loadMoreImages]);
 
   const renderImages = () => {
     return images.map((image) => (

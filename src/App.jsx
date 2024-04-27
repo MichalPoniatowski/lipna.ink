@@ -1,8 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-
 import { lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 import "./App.css";
+import { getImages } from "./redux/gallery/API-actions-gallery";
+
 // import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 const SharedLayout = lazy(() =>
   import("./components/SharedLayout/SharedLayout")
@@ -32,13 +34,19 @@ function App({ setLoading }) {
     console.log("App has loaded, setting loading to false.");
   }, [setLoading]);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getImages());
+  }, [dispatch]);
+
   return (
     <div>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="artists" element={<Artists />} />
           <Route path="gallery" element={<Gallery />} />
+          <Route path="artists" element={<Artists />} />
           <Route path="studio" element={<Studio />} />
           <Route path="contact" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />
