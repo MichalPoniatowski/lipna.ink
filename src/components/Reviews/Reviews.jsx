@@ -3,8 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "swiper/css";
 import "swiper/css/pagination";
+import { BsStarFill } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 
-import "./Reviews.css";
+import "./SwiperReviews.css";
 import { Pagination } from "swiper/modules";
 import css from "./Reviews.module.css";
 import { REVIEWS_URL } from "../../../api.URLs.js";
@@ -13,9 +15,10 @@ import { toastError } from "../Toasts/Toasts.js";
 
 const API_URL = REVIEWS_URL;
 let page = 1;
-let perPage = 10;
+let perPage = 20;
 let nextPage = false;
 let totalRating = null;
+let totalReviews = null;
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -32,10 +35,11 @@ const Reviews = () => {
       });
 
       const convertedResponse = response.data.reviews.docs;
-
       nextPage = response.data.reviews.hasNextPage;
-      totalRating = response.data.reviews.averageRating;
-
+      if (page === 1) {
+        totalRating = response.data.reviews.averageRating;
+        totalReviews = response.data.reviews.totalDocs;
+      }
       return convertedResponse;
     } catch (error) {
       console.log("Error with fetching images from API: ", error.message);
@@ -99,7 +103,23 @@ const Reviews = () => {
 
   return (
     <div>
-      <h2>OPINIE Z GOOGLA: {totalRating}</h2>
+      <div className={css.reviewsWrapper}>
+        <div className={css.reviewsStats}>
+          <p>{totalRating}</p>
+
+          <div>
+            <BsStarFill size={35} color="gold" />
+            <BsStarFill size={35} color="gold" />
+            <BsStarFill size={35} color="gold" />
+            <BsStarFill size={35} color="gold" />
+            <BsStarFill size={35} color="gold" />
+          </div>
+          <FcGoogle size={40} className={css.icon} />
+        </div>
+
+        <p className={css.reviewsNumber}>{totalReviews} Opini</p>
+      </div>
+
       <div className={css.reviewsBgr}>
         <Swiper
           slidesPerView={"auto"}

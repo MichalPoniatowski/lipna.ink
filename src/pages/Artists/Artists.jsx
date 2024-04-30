@@ -15,7 +15,7 @@ import aura_3 from "../../assets/photos/artis-page/aura3.jpg";
 import aura_4 from "../../assets/photos/artis-page/aura4.jpg";
 import aura_5 from "../../assets/photos/artis-page/aura5.jpg";
 import holidays1 from "../../assets/photos/artis-page/holidays1.jpg";
-import holidays2 from "../../assets/photos/artis-page/holidays1.jpg";
+import holidays2 from "../../assets/photos/artis-page/holidays2.jpg";
 import painting1 from "../../assets/photos/artis-page/painting1.jpg";
 
 const photos = [
@@ -30,7 +30,7 @@ const photos = [
   { src: painting1, alt: "painting1" },
 ];
 
-import { SwiperArtist } from "./SwiperArtist";
+import { SwiperAutoSlide } from "../../components/SwiperAutoSlide/SwiperAutoSlide";
 
 const Artists = () => {
   return (
@@ -123,7 +123,7 @@ const Artists = () => {
             książki i podróżuje
           </p>
           <div className={css.carousel}>
-            <SwiperArtist photos={photos} />
+            <SwiperAutoSlide photos={photos} />
           </div>
         </div>
       </div>

@@ -11,29 +11,38 @@ export const ReviewCard = ({ user, rating, image, text, date }) => {
 
   return (
     <div className={css.cardWrapper}>
-      <div className={css.cardTitle}>
-        {image && (
-          <img src={image} alt={""} className={css.avatar} loading="lazy"></img>
-        )}
+      <div className={css.titleWrapper}>
+        <div className={css.userData}>
+          {image && (
+            <img
+              src={image}
+              alt={""}
+              className={css.avatar}
+              loading="lazy"
+            ></img>
+          )}
 
-        <div>
-          <h3 className={css.user}>{user}</h3>
-          <div className={css.date}>{formattedDate}</div>
+          <div className={css.user}>
+            <h3>{user}</h3>
+            <div>{formattedDate}</div>
+          </div>
         </div>
-      </div>
-      <div className={css.rating}>
-        <p>
-          {rating} /5 <BsStarFill size={30} color="gold" />
-          <BsStarFill size={30} color="gold" />
-          <BsStarFill size={30} color="gold" />
-          <BsStarFill size={30} color="gold" />
-          <BsStarFill size={30} color="gold" />
-        </p>
+
+        <div className={css.rating}>
+          <p>
+            {rating} /5 <BsStarFill size={30} color="gold" />
+            <BsStarFill size={30} color="gold" />
+            <BsStarFill size={30} color="gold" />
+            <BsStarFill size={30} color="gold" />
+            <BsStarFill size={30} color="gold" />
+          </p>
+        </div>
       </div>
 
       <div className={css.textWrapper}>
         <p className={css.text}>{text}</p>
       </div>
+
       <div className={css.googleLogo}>
         <FcGoogle size={30} />
       </div>

@@ -1,14 +1,22 @@
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
+// import { toast, ToastContainer, Bounce } from "react-toastify";
 
 import css from "./Contact.module.css";
 import { SEND_CONTACT_FORM_URL } from "../../../api.URLs";
 import { reSizeFiles } from "./resizeFiles";
 import { ContactForm } from "./ContactForm";
 import { Loader } from "../../components/Loader/Loader";
-import { ModalAlert } from "../../components/ModalAlert/ModalAlert";
-import { ModalWrapper } from "../../components/ModalWrapper/ModalWrapper";
+// import { ModalAlert } from "../../components/ModalAlert/ModalAlert";
+// import { ModalWrapper } from "../../components/ModalWrapper/ModalWrapper";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  toastSuccess,
+  toastError,
+  toastWarning,
+} from "../../components/Toasts/Toasts";
+("../../components/Toasts");
 
 const ContactPreview = () => {
   const fileSizeLimit = 4 * 1024 * 1024;
@@ -24,12 +32,10 @@ const ContactPreview = () => {
   ];
   const filesTotalNumber = 6;
 
-  // let allertMessage;
-
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isOpenAlert, setIsOpenAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
+  // const [isOpenAlert, setIsOpenAlert] = useState(false);
+  // const [alertMessage, setAlertMessage] = useState("");
 
   const formRef = useRef(null);
 
@@ -89,12 +95,12 @@ const ContactPreview = () => {
     return allertMessageToSend;
   };
 
-  useEffect(() => {
-    if (alertMessage !== "") {
-      setIsOpenAlert(true);
-      // setIsLoading(false);
-    }
-  }, [alertMessage]);
+  // useEffect(() => {
+  //   if (alertMessage !== "") {
+  //     setIsOpenAlert(true);
+  //     // setIsLoading(false);
+  //   }
+  // }, [alertMessage]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -105,27 +111,28 @@ const ContactPreview = () => {
     // checkFilesNumberAndType(files);
 
     if (messageForAlert !== "") {
-      setAlertMessage(messageForAlert);
-      setIsOpenAlert(true);
+      // setAlertMessage(messageForAlert);
+      // setIsOpenAlert(true);
       setIsLoading(false);
+      toastWarning(messageForAlert);
       return;
     }
+
+    const formData = new FormData(formRef.current);
+    formData.delete("attachment");
 
     if (files.length > 0) {
       proccessedFiles = await proccessFiles(files);
       console.log("PROCESSED FILES", proccessedFiles);
     }
 
-    const formData = new FormData(formRef.current);
-    formData.delete("attachment");
-
     proccessedFiles.forEach((file) => {
       formData.append("files", file);
     });
 
-    // for (let [key, value] of formData.entries()) {
-    //   console.log(`${key}:`, value);
-    // }
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}:`, value);
+    }
 
     try {
       const response = await axios.post(SEND_CONTACT_FORM_URL, formData, {
@@ -134,10 +141,16 @@ const ContactPreview = () => {
         },
       });
       console.log("FORM SEND SUCCESSFULY", response.data);
+      toastSuccess(
+        "Formularz wysłany poprawnie. Na podany przez Ciebie adres mailowy została wysłana kopia formularza."
+      );
 
       formRef.current.reset();
       setFiles([]);
     } catch (error) {
+      toastError(
+        "Bład poczas wysyłania formularza. Sprawdż dane oraz załączniki i spróbuj jeszcze raz."
+      );
       console.error("Error during sending form", error.message);
     } finally {
       setIsLoading(false);
@@ -153,14 +166,6 @@ const ContactPreview = () => {
     <div className={css.contactWrapper}>
       {/* <>
         {isOpenAlert && (
-          <ModalAlert open={isOpenAlert} onClose={() => setIsOpenAlert(false)}>
-            <p>{alertMessage}</p>
-          </ModalAlert>
-        )}
-      </> */}
-
-      <>
-        {isOpenAlert && (
           <ModalWrapper open={isOpenAlert} portal={"portal-alert"}>
             <p>{alertMessage}</p>
             <button
@@ -169,7 +174,7 @@ const ContactPreview = () => {
             ></button>
           </ModalWrapper>
         )}
-      </>
+      </> */}
 
       <div className={css.contactText}>
         <h3>Jeżeli chcesz zapytać o:</h3>

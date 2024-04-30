@@ -1,13 +1,5 @@
 .contactWrapper {
-  padding: 80px 20px 60px 20px;
-  background-color: var(--beige);
-  border-bottom: 2px solid black;
-}
-
-.contactTitle {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+  margin: 20px 20px 0 20px;
 }
 
 .contactText {
@@ -33,13 +25,9 @@
   flex-direction: column;
   margin-bottom: 16px;
 }
-.formField input {
-  padding-left: 10px;
-}
 
 .formField textarea {
-  min-height: 150px;
-  padding: 10px;
+  height: 100px;
 }
 
 .hiddenInput {
@@ -47,7 +35,6 @@
 }
 
 .filesButton {
-  margin: 20px 0;
   height: 40px;
   border-radius: 20px;
   background-color: var(--light-green);
@@ -59,18 +46,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.fileItem {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-.fileClose {
-  background-color: var(--beige);
-}
-
-.fileClose:hover {
-  color: var(--orange);
 }

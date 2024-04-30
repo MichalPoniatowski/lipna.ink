@@ -26,7 +26,9 @@ export const Footer = () => {
           </address>
         </a>
 
-        <a href="tel:+48777888666">tel: 777 888 666</a>
+        <a href="mailto:lipna.tattoostudio@gmail.com">
+          lipna.tattoostudio@gmail.com
+        </a>
       </div>
       <div className={css.footerSocial}>
         <SocialMedia />

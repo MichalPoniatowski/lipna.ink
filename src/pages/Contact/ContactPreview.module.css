@@ -1,0 +1,40 @@
+.previewWrapper {
+  margin: 20px 20px 0 20px;
+}
+
+.previewText {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-bottom: 20px;
+}
+.previewTitle {
+  font-size: 1.5rem;
+}
+
+.previewText li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.previewList li {
+  font-size: 1rem;
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+.previewText2 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.previewSocial {
+  background-color: var(--deep-green);
+  /* height: 70px; */
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+
+  padding: 10px 30px;
+  border-radius: 30px;
+}

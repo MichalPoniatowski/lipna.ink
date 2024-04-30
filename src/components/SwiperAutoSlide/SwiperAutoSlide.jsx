@@ -3,9 +3,9 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import "./SwiperArtist.css";
+import "./SwiperAutoSlide.css";
 
-export const SwiperArtist = ({ photos }) => {
+export const SwiperAutoSlide = ({ photos }) => {
   const renderImages = () => {
     return photos.map((photo) => (
       <SwiperSlide key={photo.alt} className="swiper-slide">
