@@ -30,7 +30,6 @@ const RootComponent = () => {
 
   useEffect(() => {
     console.log("loading state:", loading);
-    console.log("DZIĘI MAKSIU !!");
   }, [loading]);
 
   return (
