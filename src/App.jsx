@@ -36,7 +36,7 @@ function App({ setLoading }) {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="gallery" element={<Gallery />} />
-          <Route path="artists" element={<Artists />} />
+          <Route path="artist" element={<Artists />} />
           <Route path="studio" element={<Studio />} />
           <Route path="contact" element={<Contact />} />
           <Route path="faq" element={<FAQ />} />

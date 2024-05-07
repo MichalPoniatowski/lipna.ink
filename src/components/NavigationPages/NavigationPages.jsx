@@ -9,7 +9,7 @@ export const NavigationPages = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/artists">Artysta</Link>
+            <Link to="/artist">Artysta</Link>
           </li>
           <li>
             <Link to="/gallery">Galleria</Link>
