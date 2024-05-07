@@ -8,11 +8,14 @@ const ContactPreview = () => {
   return (
     <div className={css.previewWrapper}>
       <div className={css.previewText}>
-        <h3 className={css.previewTitle}>Jeżeli chcesz zapytać o:</h3>
+        <h3 className={css.previewTitle}>Jak się można ze mną skontaktować?</h3>
         <ul className={css.previewList}>
           <li>
             <IoArrowForwardOutline size="1rem" />
-            możliwość wykonania projektu?
+            mailowo:{" "}
+            <a href="mailto:lipna.tattoostudio@gmail.com">
+              lipna.tattoostudio@gmail.com
+            </a>
           </li>
           <li>
             <IoArrowForwardOutline size="1rem" />
@@ -34,9 +37,6 @@ const ContactPreview = () => {
       </div>
       <div>
         Możesz rónież skontaktować się zemną poprzez maila:
-        <a href="mailto:lipna.tattoostudio@gmail.com">
-          lipna.tattoostudio@gmail.com
-        </a>{" "}
         <br />
         lub social media:
         <div className={css.previewSocial}>

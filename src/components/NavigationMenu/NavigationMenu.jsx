@@ -36,7 +36,7 @@ export const NavigationMenu = ({ onClose }) => {
                   </li>
                   <li>
                     <Link
-                      to="/artists"
+                      to="/artist"
                       onClick={(e) => handleClose(e, "/artists")}
                     >
                       Artysta
