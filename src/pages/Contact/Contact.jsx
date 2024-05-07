@@ -114,6 +114,8 @@ const Contact = () => {
     }
 
     try {
+      console.log("SEND_CONTACT_FORM_URL:", SEND_CONTACT_FORM_URL);
+
       const response = await axios.post(SEND_CONTACT_FORM_URL, formData, {
         headers: {
           "Content-Type": "multipart/form-data",

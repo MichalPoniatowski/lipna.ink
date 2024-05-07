@@ -1,4 +1,4 @@
-export const host = "http://lipna-server.vercel.app";
+export const host = "https://lipna-server.vercel.app";
 
 export const GALLERY_URL = host + "/gallery/";
 
