@@ -64,7 +64,7 @@ export const NavigationMenu = ({ onClose }) => {
                       to="/contact"
                       onClick={(e) => handleClose(e, "/contact")}
                     >
-                      Kontakt
+                      Formularz kontaktowy
                     </Link>
                   </li>
                   <li>

@@ -17,7 +17,6 @@ const FAQPreview = () => {
           <div className="swiper-question">{item.question}</div>
           <div className="swiper-answear">{item.answear}</div>
         </div>
-        {/* <button className="swiper-button">Wyświetl cały opis</button> */}
       </SwiperSlide>
     ));
   };
