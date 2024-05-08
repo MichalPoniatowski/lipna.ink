@@ -17,7 +17,7 @@ import { Modal } from "../../components/Modal/Modal";
 ("../../components/Toasts");
 
 const Contact = () => {
-  const fileSizeLimit = 4 * 1024 * 1024;
+  const fileSizeLimit = 0.8 * 1024 * 1024;
   const allowedTypes = [
     "image/jpeg",
     "image/png",
