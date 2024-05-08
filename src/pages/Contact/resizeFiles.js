@@ -4,7 +4,8 @@ export const reSizeFiles = async (fileSizeLimit, files) => {
   let compressedFiles = [];
 
   const options = {
-    maxSizeMB: fileSizeLimit / 1024,
+    maxSizeMB: fileSizeLimit / (1024 * 1024),
+    useWebWorker: true,
   };
 
   for (const file of files) {
