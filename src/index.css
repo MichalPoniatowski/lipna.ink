@@ -2,7 +2,7 @@
 
 body {
   /* background-color: var(--deep-green); */
-  background-color: white;
+  background-color: var(--deep-green);
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   /* color: var(--beige); */
@@ -19,10 +19,12 @@ body {
 
 :root {
   --deep-green: rgb(11, 40, 30);
+  --middle-green: rgb(28, 100, 75);
+  --middle2-green: rgb(70, 116, 116);
   --light-green: rgb(118, 159, 87);
   --beige: rgb(241, 241, 220);
-  --light-orange: rgb(240, 140, 103);
-  --orange: rgb(199, 53, 0);
+  --light-orange: rgb(248, 131, 88);
+  --orange: rgb(227, 63, 3);
   --toastify-bgr-color: #d0fae2;
   --skeleton-bgr: rgb(216, 211, 211);
 }

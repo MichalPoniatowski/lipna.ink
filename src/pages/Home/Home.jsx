@@ -65,7 +65,7 @@ const Home = () => {
       </Suspense>
 
       <Suspense fallback={<SkeletonLoader2 />}>
-        <PreviewContainer2 title={"FAQ"} color={"deep-green"}>
+        <PreviewContainer2 title={"FAQ"} color={"middle-green"}>
           <FAQPreview />
           <Button path="faq" text="Przejżyj wszytskie Q & A" />
         </PreviewContainer2>
