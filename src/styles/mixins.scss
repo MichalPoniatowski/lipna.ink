@@ -1,0 +1,6 @@
+@mixin neonEffect {
+  color: rgb(193, 208, 176);
+  text-shadow: 0 0 5px var(--light-green), 0 0 10px var(--shadow-green),
+    0 0 20px var(--shadow-green), 0 0 40px var(--beige), 0 0 80px var(--beige),
+    0 0 90px var(--shadow-green), 0 0 100px var(--shadow-green);
+}

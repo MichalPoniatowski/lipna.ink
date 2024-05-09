@@ -3,10 +3,16 @@
 body {
   /* background-color: var(--deep-green); */
   background-color: var(--deep-green);
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   line-height: 1.5;
   /* color: var(--beige); */
-  color: black;
+  /* color: black; */
+  color: var(--deep-green);
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 * button {
@@ -21,6 +27,7 @@ body {
   --deep-green: rgb(11, 40, 30);
   --middle-green: rgb(28, 100, 75);
   --middle2-green: rgb(70, 116, 116);
+  --shadow-green: rgba(50, 228, 1, 0.9);
   --light-green: rgb(118, 159, 87);
   --beige: rgb(241, 241, 220);
   --light-orange: rgb(248, 131, 88);

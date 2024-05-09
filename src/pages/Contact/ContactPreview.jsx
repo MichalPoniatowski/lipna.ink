@@ -8,11 +8,12 @@ import {
   IoLogoInstagram,
   IoArrowDownCircleSharp,
 } from "react-icons/io5";
+import { AiOutlineForm } from "react-icons/ai";
 import { IconContext } from "react-icons/lib";
+import { Link } from "react-router-dom";
 
 import css from "./ContactPreview.module.css";
 import style from "../../assets/icons/Icons.module.css";
-import { SocialMedia } from "../../components/SocialMedia/SocialMedia";
 
 const ContactPreview = () => {
   return (
@@ -24,48 +25,61 @@ const ContactPreview = () => {
             value={{ size: "2rem", className: style.icons }}
           >
             <li>
-              <a href="mailto:lipna.tattoostudio@gmail.com">
+              <a
+                href="mailto:lipna.tattoostudio@gmail.com"
+                className={css.itemLink}
+              >
                 <FiMail />
+                <span className={css.space} />
+                Mailowo
               </a>
-              <p>Mailowo</p>
             </li>
+
             <li>
               <a
                 href="https://www.instagram.com/lipna.ink/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className={css.itemLink}
               >
                 <IoLogoInstagram />
+                <span className={css.space} />
+                Instagram
               </a>
-              <p>Instagram</p>
             </li>
+
             <li>
               <a
                 href="https://www.tiktok.com/@lipna.ink"
                 target="_blank"
                 rel="noopener noreferrer"
+                className={css.itemLink}
               >
-                <IoLogoTiktok />
+                <IoLogoInstagram />
+                <span className={css.space} />
+                Tik Tok
               </a>
-              <p>Tik Tok</p>
             </li>
+
             <li>
               <a
                 href="https://www.facebook.com/lipna.ink"
                 target="_blank"
                 rel="noopener noreferrer"
+                className={css.itemLink}
               >
-                <IoLogoFacebook />
+                <IoLogoInstagram />
+                <span className={css.space} />
+                Facebook
               </a>
-              <p>Facebook</p>
             </li>
 
             <li>
-              <a href="https://www.lipna.ink/contact" rel="noopener noreferrer">
-                <IoArrowDownCircleSharp />
-              </a>
-
-              <p>Wypełniając formularz kontaktowy</p>
+              <Link to="contact" className={css.itemLink}>
+                <AiOutlineForm />
+                <span className={css.space} />
+                Wypełniając formularz kontaktowy
+              </Link>
             </li>
           </IconContext.Provider>
         </ul>

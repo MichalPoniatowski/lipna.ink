@@ -60,7 +60,6 @@ const Home = () => {
       <Suspense fallback={<SkeletonLoader2 />}>
         <PreviewContainer title={"Kontakt"} color={"beige"}>
           <ContactPreview />
-          <Button path="contact" text="Wypełnij formularz kontaktowy" />
         </PreviewContainer>
       </Suspense>
 
@@ -76,8 +75,6 @@ const Home = () => {
           <Reviews />
         </PreviewContainer2>
       </Suspense>
-
-      {/* <SkeletonHeroLoader /> */}
     </main>
   );
 };

@@ -23,7 +23,12 @@
   /* background-color: aqua; */
 }
 
-.previewList li {
+.previewText2 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.itemLink {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -33,16 +38,15 @@
   border-radius: 30px;
   padding-left: 20px;
   margin-bottom: 20px;
-}
-
-.previewList li p,
-.previewList li a {
-  margin-left: 10px;
-  text-decoration: none;
+  width: 100%;
   color: var(--beige);
 }
 
-.previewText2 {
-  font-size: 1rem;
-  font-weight: 700;
+.itemLink {
+  display: flex;
+  align-items: center;
+}
+
+.space {
+  margin-left: 10px;
 }

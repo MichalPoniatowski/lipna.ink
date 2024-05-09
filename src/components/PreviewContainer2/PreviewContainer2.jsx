@@ -1,4 +1,4 @@
-import css from "./PreviewContainer2.module.css";
+import css from "./PreviewContainer2.module.scss";
 
 export const PreviewContainer2 = ({ children, title, color }) => {
   const brgColor = {
