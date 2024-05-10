@@ -10,7 +10,7 @@ export const Button = ({ path, text }) => {
       <Link to={`/${path}`}>
         <button className={css.button}>
           {`${text} `}
-          <IoArrowForwardOutline size="1rem" className={css.buttonArrow} />
+          <IoArrowForwardOutline size="1.5rem" className={css.buttonArrow} />
         </button>
       </Link>
     </div>

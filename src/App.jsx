@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import "./App.css";
 import { getImages } from "./redux/gallery/API-actions-gallery";
 
-// import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 const SharedLayout = lazy(() =>
   import("./components/SharedLayout/SharedLayout")
 );

@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   text-decoration: none;
+  max-width: 550px;
 }
 
 .wrapper a:hover {

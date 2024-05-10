@@ -60,8 +60,6 @@ const Hero = () => {
         <source src={filmSrc} type="video/mp4" />
         Twoja przeglądarka nie obsługuje tego formatu wideo.
       </video>
-
-      {/* {!videoLoaded && <Loader />} */}
     </div>
   );
 };
