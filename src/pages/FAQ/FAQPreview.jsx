@@ -5,7 +5,7 @@ import { Pagination } from "swiper/modules";
 import { nanoid } from "nanoid";
 
 import "./FAQswiper.css";
-import css from "./FAQ.module.css";
+import css from "./FAQ.module.scss";
 
 import questionsAnswears from "./uestionsAnswears.jsx";
 

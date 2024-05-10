@@ -1,4 +1,4 @@
-import css from "./Studio.module.css";
+import css from "./Studio.module.scss";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

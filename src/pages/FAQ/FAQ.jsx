@@ -5,7 +5,7 @@ import "swiper/css/pagination";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
 import questionsAnswears from "./uestionsAnswears.jsx";
-import css from "./FAQ.module.css";
+import css from "./FAQ.module.scss";
 import { Modal } from "../../components/Modal/Modal.jsx";
 
 const FAQ = () => {

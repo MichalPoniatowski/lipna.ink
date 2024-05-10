@@ -1,3 +1,5 @@
+@import "../../styles/mixins.scss";
+
 .studioText {
   display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -54,12 +56,9 @@
 
 .titleMain {
   font-size: 2.5rem;
-  font-weight: 700;
-  text-shadow: 4px 4px 3px rgba(2, 2, 2, 1);
-  color: var(--beige);
-  padding-left: 20px;
-  border-radius: 20px;
+  margin-left: 20px;
   margin-bottom: 10px;
+  @include neonEffect;
 }
 
 .slides {

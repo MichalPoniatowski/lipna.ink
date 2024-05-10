@@ -7,7 +7,7 @@ import {
   useDebounce,
 } from "../../components/CustomHooks/CustomHooks";
 
-import css from "./Gallery.module.css";
+import css from "./Gallery.module.scss";
 import {
   getImages,
   getMoreImages,

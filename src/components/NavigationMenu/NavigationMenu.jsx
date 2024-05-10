@@ -39,7 +39,7 @@ export const NavigationMenu = ({ onClose }) => {
                       to="/artist"
                       onClick={(e) => handleClose(e, "/artists")}
                     >
-                      Artysta
+                      O mnie
                     </Link>
                   </li>
                   <li>

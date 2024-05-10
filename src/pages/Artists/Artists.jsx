@@ -1,6 +1,6 @@
 import { FaPaw } from "react-icons/fa6";
 
-import css from "./Artists.module.css";
+import css from "./Artists.module.scss";
 
 import profilePhoto from "../../assets/photos/jagoda-profile2.jpg";
 import moonWomen from "../../assets/graphics/moon_women.jpg";

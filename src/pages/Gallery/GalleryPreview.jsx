@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 
 import "./style.css";
 import { Pagination } from "swiper/modules";
-import css from "./Gallery.module.css";
+import css from "./Gallery.module.scss";
 import {
   getImages,
   getMoreImages,

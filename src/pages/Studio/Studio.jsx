@@ -1,6 +1,6 @@
 // import { Suspense, lazy } from "react";
 
-import css from "./Studio.module.css";
+import css from "./Studio.module.scss";
 import { Map } from "../../components/Map/Map";
 import studio_3 from "../../assets/photos/studio/studio-3.JPG";
 
@@ -11,7 +11,7 @@ const Studio = () => {
   return (
     <div className={css.wrapper}>
       <div className={css.hero}>
-        <h2 className={css.titleMain}>STUDIO</h2>
+        <h2 className={css.titleMain}>Studio</h2>
         <img src={studio_3} alt="studio" />
       </div>
       <div className={css.textWrapper}>
