@@ -41,7 +41,7 @@ const SharedLayout = () => {
       setShowNavBar(true);
     }
     setScrollValue(window.scrollY);
-  }, 1000);
+  }, 300);
 
   useEffect(() => {
     addEventListener("scroll", controllNavBar);
@@ -105,7 +105,11 @@ const SharedLayout = () => {
         </IconContext.Provider>
       </div>
 
-      <Modal portal={"portal-modal-nav"} open={isModalOpen}>
+      <Modal
+        portal={"portal-modal-nav"}
+        open={isModalOpen}
+        className={css.modalContent}
+      >
         <NavigationMenu onClose={() => setIsModalOpen(false)} />
       </Modal>
       <Outlet />

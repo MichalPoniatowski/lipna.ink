@@ -9,6 +9,10 @@
   margin-top: 76px;
 }
 
+.animatedBgrWrapper {
+  max-width: 550px;
+}
+
 .navContainer {
   margin-top: 2rem;
   /* background-color: aquamarine; */
@@ -25,4 +29,13 @@
 
 .navFooter {
   margin: 0 40px 0 40px;
+  max-width: 550px;
 }
+
+/* @media screen and (min-widt: 550px) {
+  .navBrg,
+  .navContainer {
+    width: 550px;
+    margin: 0, auto;
+  }
+} */

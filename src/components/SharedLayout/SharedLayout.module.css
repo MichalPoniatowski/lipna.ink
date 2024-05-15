@@ -53,3 +53,8 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+.modalContent {
+  max-width: 550px;
+  margin: 0 auto;
+}

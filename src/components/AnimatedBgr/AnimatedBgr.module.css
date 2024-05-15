@@ -4,9 +4,15 @@
   }
 }
 
+.bgrWrapper {
+  max-width: 550px;
+  overflow: hidden;
+}
+
 .background {
   position: fixed;
   width: 100vw;
+
   height: 100vh;
   top: 0;
   left: 0;
@@ -468,4 +474,11 @@
   animation-delay: -31s;
   transform-origin: 23vw 20vh;
   box-shadow: -98vmin 0 12.454662457484087vmin currentColor;
+}
+
+@media screen and (min-widt: 550px) {
+  .bgrWrapper {
+    width: 550px;
+    margin: 0, auto;
+  }
 }
