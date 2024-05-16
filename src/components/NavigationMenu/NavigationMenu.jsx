@@ -20,7 +20,7 @@ export const NavigationMenu = ({ onClose }) => {
   return (
     <div className={css.navBrg}>
       <Suspense fallback={<div></div>}>
-        <AnimatedBgr className={css.animatedBgrWrapper} />
+        <AnimatedBgr />
       </Suspense>
 
       <div className={css.navBrg}>

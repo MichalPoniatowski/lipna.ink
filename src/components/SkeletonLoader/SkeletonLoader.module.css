@@ -4,7 +4,8 @@
   justify-content: flex-end;
   position: relative;
   height: 80vh;
-  width: 100vw;
+  /* width: 100vw; */
+  max-width: 550px;
   overflow: hidden;
   margin-bottom: 40px;
 }

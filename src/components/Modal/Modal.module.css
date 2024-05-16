@@ -13,10 +13,10 @@
 }
 
 .childrenWrapper {
-  /* width: 100%; */
+  width: 100%;
   height: 100%;
 
-  max-width: 550px;
+  /* max-width: 550px; */
   margin: 0 auto;
   transform: translateY(0%);
 }
@@ -29,4 +29,11 @@
 .hide {
   transform: translateY(-100%);
   opacity: 0;
+}
+
+@media screen and (min-width: 550px) {
+  .childrenWrapper {
+    width: 550px;
+    margin: 0 auto;
+  }
 }

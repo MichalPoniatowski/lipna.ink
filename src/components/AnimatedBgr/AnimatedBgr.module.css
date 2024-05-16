@@ -476,8 +476,8 @@
   box-shadow: -98vmin 0 12.454662457484087vmin currentColor;
 }
 
-@media screen and (min-widt: 550px) {
-  .bgrWrapper {
+@media screen and (min-width: 550px) {
+  .background {
     width: 550px;
     margin: 0, auto;
   }

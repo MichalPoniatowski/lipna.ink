@@ -13,6 +13,7 @@ export const Form = ({ files, handleFileChange, removefiles, handleClick }) => {
           type="text"
           name="name"
           required
+          pattern="^[A-Za-ząęółśżźćńĄĘÓŁŚŻŹĆŃ]{2,}(?:\s[A-Za-ząęółśżźćńĄĘÓŁŚŻŹĆŃ]{2,})?$"
         />
       </div>
       <div className={css.formField}>
@@ -27,10 +28,11 @@ export const Form = ({ files, handleFileChange, removefiles, handleClick }) => {
       <div className={css.formField}>
         <label>Opisz swój projekt:</label>
         <textarea
-          placeholder="Opisz jaki masz pomysł na dziarkę :) Zamin o coś zapytasz zerknij na FAQ ;)"
+          placeholder="Opisz jaki masz pomysł na dziarkę :) Zamin o coś zapytasz zerknij na FAQ ;), Minmalna długość opisu to 5 słów."
           type="text"
           name="description"
           required
+          pattern="^\s*\S+(?:\s+\S+){4,}\s*$"
         />
       </div>
       <div className={css.formField}>

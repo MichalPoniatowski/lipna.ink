@@ -1,16 +1,11 @@
 .navBrg {
   width: 100vw;
-
   height: 100vh;
   position: fixed;
   top: 0;
   background-color: transparent;
   font-size: 1.6rem;
   margin-top: 76px;
-}
-
-.animatedBgrWrapper {
-  max-width: 550px;
 }
 
 .navContainer {
@@ -22,9 +17,9 @@
 .navPages {
   border-bottom: 3px solid;
   color: var(--beige);
+  margin-top: 40px;
   margin-bottom: 40px;
   padding-left: 40px;
-  /* margin-left: 20px; */
 }
 
 .navFooter {
@@ -32,10 +27,14 @@
   max-width: 550px;
 }
 
-/* @media screen and (min-widt: 550px) {
+@media screen and (min-width: 550px) {
   .navBrg,
   .navContainer {
     width: 550px;
-    margin: 0, auto;
+    margin: 0 auto;
+    overflow: hidden;
   }
-} */
+  .navPages {
+    margin-top: 100px;
+  }
+}
