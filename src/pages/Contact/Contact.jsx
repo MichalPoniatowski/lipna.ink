@@ -2,7 +2,7 @@ import { IoArrowForwardOutline } from "react-icons/io5";
 import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 
-import css from "./Contact.module.css";
+import css from "./Contact.module.scss";
 import { SEND_CONTACT_FORM_URL } from "../../../api.URLs";
 import { reSizeFiles } from "./resizeFiles";
 import { Form } from "./Form";

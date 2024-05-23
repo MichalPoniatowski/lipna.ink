@@ -1,0 +1,107 @@
+@import "../../styles/mixins.scss";
+
+.contactWrapper {
+  padding: 80px 20px 40px 20px;
+}
+
+.contactTitle {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  @include neonEffect;
+}
+
+.contactText {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-bottom: 20px;
+}
+
+.contactText li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.formWrapper {
+  padding: 20px 20px 0 20px;
+  border-radius: 20px;
+  background-color: var(--middle2-green);
+  color: var(--beige);
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.formField textarea {
+  min-height: 150px;
+}
+
+.formField input,
+.formField textarea {
+  padding: 5px 10px 5px 10px;
+  background-color: var(--beige);
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.formField input:focus,
+.formField textarea:focus {
+  border-color: var(--orange);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.filesButton {
+  margin: 20px 0;
+  height: 40px;
+  border-radius: 20px;
+  background-color: var(--light-green);
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--beige);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileItem {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.fileClose {
+  background-color: var(--beige);
+}
+
+.fileClose:hover {
+  color: var(--orange);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px var(--beige) inset !important;
+  box-shadow: 0 0 0px 1000px var(--beige) inset !important;
+  -webkit-text-fill-color: initial !important;
+  caret-color: initial !important;
+  border: 2px solid transparent !important;
+}
+
+input:-moz-autofill,
+textarea:-moz-autofill {
+  background-color: var(--beige) !important;
+  caret-color: initial !important;
+  border: 2px solid transparent !important;
+}

@@ -1,6 +1,6 @@
 import { IoCloseOutline } from "react-icons/io5";
 
-import css from "./Contact.module.css";
+import css from "./Contact.module.scss";
 import { ButtonSubmit } from "../../components/Button/ButtonSubmit";
 
 export const Form = ({ files, handleFileChange, removefiles, handleClick }) => {
@@ -23,6 +23,7 @@ export const Form = ({ files, handleFileChange, removefiles, handleClick }) => {
           type="email"
           name="email"
           required
+          className={css.email}
         />
       </div>
       <div className={css.formField}>
@@ -39,7 +40,8 @@ export const Form = ({ files, handleFileChange, removefiles, handleClick }) => {
         <label htmlFor="attachment">
           Maksmymalna ilość załączników to 6.
           <br />
-          Dopuszczalne rodzaje plików to zdjecia oraz pdf.
+          Dopuszczalne rodzaje plików to: jpeg/ png/ heic/ heif/ tiff/ webp/
+          svg+xml/ pdf.
         </label>
         <button onClick={handleClick} className={css.filesButton} type="button">
           {files.length > 0

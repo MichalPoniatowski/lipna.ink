@@ -1,14 +1,9 @@
 @import "normalize.css";
 
 body {
-  /* background-color: var(--deep-green); */
   background-color: var(--deep-green);
-  /* font-family: "Roboto", sans-serif; */
   line-height: 1.5;
-  /* color: var(--beige); */
-  /* color: black; */
   color: var(--deep-green);
-
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
