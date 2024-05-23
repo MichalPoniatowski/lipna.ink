@@ -1,6 +1,6 @@
-export const host = "https://lipna-server.vercel.app";
+// export const host = "https://lipna-server.vercel.app";
 
-// export const host = "http://localhost:3000";
+export const host = "http://localhost:3000";
 
 export const GALLERY_URL = host + "/gallery/";
 
