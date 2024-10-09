@@ -1,34 +1,35 @@
-import { IoArrowForwardOutline } from "react-icons/io5";
-import { useState, useRef, useEffect } from "react";
-import axios from "axios";
+import { IoArrowForwardOutline } from 'react-icons/io5';
+import { useState, useRef, useEffect } from 'react';
+import axios from 'axios';
 
-import css from "./Contact.module.scss";
-import { SEND_CONTACT_FORM_URL } from "../../../api.URLs";
-import { reSizeFiles } from "./resizeFiles";
-import { Form } from "./Form";
-import { Loader } from "../../components/Loader/Loader";
-import "react-toastify/dist/ReactToastify.css";
+import css from './Contact.module.scss';
+import { SEND_CONTACT_FORM_URL } from '../../../api.URLs';
+import { reSizeFiles } from './resizeFiles';
+import { Form } from './Form';
+import { Loader } from '../../components/Loader/Loader';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   toastSuccess,
   toastError,
   toastWarning,
-} from "../../components/Toasts/Toasts";
-import { Modal } from "../../components/Modal/Modal";
-("../../components/Toasts");
+} from '../../components/Toasts/Toasts';
+import { Modal } from '../../components/Modal/Modal';
+('../../components/Toasts');
 
 const Contact = () => {
   const fileSizeLimit = 800 * 1024;
   const allowedTypes = [
-    "image/jpeg",
-    "image/png",
-    "application/pdf",
-    "image/heic",
-    "image/heif",
-    "image/tiff",
-    "image/webp",
-    "image/svg+xml",
+    'image/jpeg',
+    'image/png',
+    'application/pdf',
+    'image/heic',
+    'image/heif',
+    'image/tiff',
+    'image/webp',
+    'image/svg+xml',
   ];
   const filesTotalNumber = 6;
+  const MAX_NAME_LENGTH = 50;
 
   const [files, setFiles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -62,15 +63,15 @@ const Contact = () => {
   };
 
   const checkFilesNumberAndType = (files) => {
-    let allertMessageToSend = "";
+    let allertMessageToSend = '';
 
     const notAllowedFilesNames = files
       .filter((file) => !allowedTypes.includes(file.type))
       .map((file) => file.name);
 
     if (notAllowedFilesNames.length > 0) {
-      const filesTypesString = allowedTypes.join(", ");
-      const notAllowedFilesNamesStrig = notAllowedFilesNames.join(", ");
+      const filesTypesString = allowedTypes.join(', ');
+      const notAllowedFilesNamesStrig = notAllowedFilesNames.join(', ');
 
       allertMessageToSend += `Dopuszczalne typy plików do wysłania formularza to: ${filesTypesString}
       Wybrałeś pliki: ${notAllowedFilesNamesStrig} które nie spełniają kryteriów, wybierz poprawne pliki.`;
@@ -91,22 +92,28 @@ const Contact = () => {
 
     const messageForAlert = checkFilesNumberAndType(files);
 
-    if (messageForAlert !== "") {
+    if (formData.name.length > MAX_NAME_LENGTH) {
+      setIsLoading(false);
+      toastWarning('Maksymalna długość imienia to 50 znaków');
+      return;
+    }
+
+    if (messageForAlert !== '') {
       setIsLoading(false);
       toastWarning(messageForAlert);
       return;
     }
 
     const formData = new FormData(formRef.current);
-    formData.delete("attachment");
+    formData.delete('attachment');
 
     if (files.length > 0) {
       proccessedFiles = await proccessFiles(files);
-      console.log("PROCESSED FILES", proccessedFiles);
+      console.log('PROCESSED FILES', proccessedFiles);
     }
 
     proccessedFiles.forEach((file) => {
-      formData.append("files", file);
+      formData.append('files', file);
     });
 
     for (let [key, value] of formData.entries()) {
@@ -114,25 +121,25 @@ const Contact = () => {
     }
 
     try {
-      console.log("SEND_CONTACT_FORM_URL:", SEND_CONTACT_FORM_URL);
+      console.log('SEND_CONTACT_FORM_URL:', SEND_CONTACT_FORM_URL);
 
       const response = await axios.post(SEND_CONTACT_FORM_URL, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
       });
-      console.log("FORM SEND SUCCESSFULY", response.data);
+      console.log('FORM SEND SUCCESSFULY', response.data);
       toastSuccess(
-        "Formularz wysłany poprawnie. Na podany przez Ciebie adres mailowy została wysłana kopia formularza."
+        'Formularz wysłany poprawnie. Na podany przez Ciebie adres mailowy została wysłana kopia formularza.'
       );
 
       formRef.current.reset();
       setFiles([]);
     } catch (error) {
       toastError(
-        "Bład poczas wysyłania formularza. Sprawdż dane oraz załączniki i spróbuj jeszcze raz."
+        'Bład poczas wysyłania formularza. Sprawdż dane oraz załączniki i spróbuj jeszcze raz.'
       );
-      console.error("Error during sending form", error.message);
+      console.error('Error during sending form', error.message);
     } finally {
       setIsLoading(false);
     }
@@ -140,7 +147,7 @@ const Contact = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    document.getElementById("attachment").click();
+    document.getElementById('attachment').click();
   };
 
   return (
@@ -149,7 +156,7 @@ const Contact = () => {
       <div className={css.formWrapper}>
         <form onSubmit={handleSubmit} ref={formRef}>
           {isLoading && (
-            <Modal portal="portal-loading" open={isLoading}>
+            <Modal portal='portal-loading' open={isLoading}>
               <Loader />
             </Modal>
           )}

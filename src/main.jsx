@@ -1,42 +1,46 @@
-import React, { Suspense, lazy, useState, useEffect } from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import React, { Suspense, lazy, useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { Provider } from 'react-redux';
+import { store } from './redux/store.js';
+import ReactGA from 'react-ga4';
 
-import { Provider } from "react-redux";
-import { store } from "./redux/store.js";
+const App = lazy(() => import('./App.jsx'));
+import './index.css';
+import { SplashScreen } from './components/SplashScreen/SplashScreen.jsx';
 
-const App = lazy(() => import("./App.jsx"));
-import "./index.css";
-import { SplashScreen } from "./components/SplashScreen/SplashScreen.jsx";
-
-const container = document.getElementById("root");
+const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 const RootComponent = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    ReactGA.initialize('G-NT2BV9SR6G');
+  }, []);
+
+  useEffect(() => {
     const handleTouch = () => {};
 
-    document.addEventListener("touchmove", handleTouch, { passive: true });
-    document.addEventListener("touchstart", handleTouch, { passive: true });
+    document.addEventListener('touchmove', handleTouch, { passive: true });
+    document.addEventListener('touchstart', handleTouch, { passive: true });
 
     return () => {
-      document.removeEventListener("touchmove", handleTouch);
-      document.removeEventListener("touchstart", handleTouch);
+      document.removeEventListener('touchmove', handleTouch);
+      document.removeEventListener('touchstart', handleTouch);
     };
   }, []);
 
   useEffect(() => {
-    console.log("loading state:", loading);
+    console.log('loading state:', loading);
   }, [loading]);
 
   return (
     <React.StrictMode>
       <Suspense fallback={<div></div>}>
         <Provider store={store}>
-          <BrowserRouter basename="/">
+          <BrowserRouter basename='/'>
             <App setLoading={setLoading} />
             <ToastContainer limit={1} />
           </BrowserRouter>
