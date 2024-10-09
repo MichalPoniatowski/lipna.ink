@@ -16,9 +16,9 @@ const root = ReactDOM.createRoot(container);
 const RootComponent = () => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    ReactGA.initialize('G-NT2BV9SR6G');
-  }, []);
+  // useEffect(() => {
+  //   ReactGA.initialize('G-NT2BV9SR6G');
+  // }, []);
 
   useEffect(() => {
     const handleTouch = () => {};
